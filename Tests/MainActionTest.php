@@ -2,13 +2,16 @@
 
 class MainActionTest extends \PHPUnit_Framework_Testcase {
 
+	private $container;
 	private $action;
+	private $actionClassReflector;
+	private $actionObjectReflector;
 
 	public function setUp() {
 		require_once(__DIR__.'/../../Cool/Classes/LoadTestHelper.php');
 		\Cool\LoadTestHelper::loadAll();
 		$container = new \Cool\Container();
-		$this->action = $container->instantiate('Ext\MainAction');
+		$this->action = $container->getInstance('Ext\MainAction');
 	}
 
 	/**
@@ -16,7 +19,7 @@ class MainActionTest extends \PHPUnit_Framework_Testcase {
 	*/
 	function action_can_be_created() {
 		$this->assertInstanceOf('Ext\MainAction', $this->action);
-		$this->assertInstanceOf('Ext\AbstractAction', $this->action);
+		$this->assertInstanceOf('Ext\Action', $this->action);
 	}
 
 	/**

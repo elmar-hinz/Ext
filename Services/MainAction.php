@@ -1,11 +1,10 @@
 <?php namespace Ext;
 
-class MainAction extends AbstractAction {
+class MainAction extends Action {
 
 	public function go() {
 	}
 }
-	
 
 ?>
 
