@@ -11,7 +11,7 @@ class ActionTest extends \PHPUnit_Framework_Testcase {
 		require_once(__DIR__.'/../../Cool/Classes/LoadTestHelper.php');
 		\Cool\LoadTestHelper::loadAll();
 		$this->container = $this->getMockBuilder('\Cool\Container')->disableOriginalConstructor()->getMock();
-		$this->action = $this->getMockBuilder('\Ext\Action')->setConstructorArgs(array($this->container))->setMethods(array('go'))->getMock();
+		$this->action = $this->getMockBuilder('\Ext\Action')->setConstructorArgs(array($this->container))->setMethods(array('go', 'usage', 'help'))->getMock();
 		$this->action->expects($this->any())->method('do');
 		$this->actionObjectReflector = new \ReflectionObject($this->action);
 		$this->actionClassReflector = new \ReflectionClass('\Ext\Action');
@@ -22,16 +22,16 @@ class ActionTest extends \PHPUnit_Framework_Testcase {
 	*/
 	function action_can_be_constructed() {
 		$this->assertInstanceOf('Ext\Action', $this->action);
-		$this->assertInstanceOf('Cool\Service', $this->action);
+		$this->assertInstanceOf('\Cool\Service', $this->action);
 	}
 
 	/**
 	* @test
 	*/
-	function setArguments_works() {
-		$myArguments = array('some', 'command', 'do');
-		$this->action->setArguments($myArguments);
-		$this->assertSame($myArguments, $this->action->getArguments());
+	function setCommands_works() {
+		$myCommands = array('some', 'command', 'do');
+		$this->action->setCommands($myCommands);
+		$this->assertSame($myCommands, $this->action->getCommands());
 	}
 
 	/**
@@ -60,7 +60,7 @@ class ActionTest extends \PHPUnit_Framework_Testcase {
 		$childAction = $this->getMockBuilder('\Ext\Action')
 		->setConstructorArgs(array($this->container))->getMock();
 		$childAction->expects($this->once())->method('go');
-		$childAction->expects($this->once())->method('setArguments')
+		$childAction->expects($this->once())->method('setCommands')
 		->with($this->equalTo(array('subsubcommand')));
 
 		// expectations of the queried container
@@ -70,7 +70,7 @@ class ActionTest extends \PHPUnit_Framework_Testcase {
 		->will($this->returnValue($childAction));
 
 		// run test
-		$this->action->setArguments(array('subcommand', 'subsubcommand'));
+		$this->action->setCommands(array('subcommand', 'subsubcommand'));
 		$m = $this->actionObjectReflector->getMethod('handleSubcommand');
 		$m->setAccessible(TRUE);
 		$m->invoke($this->action);

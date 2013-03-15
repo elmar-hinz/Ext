@@ -3,7 +3,7 @@
 abstract class Action implements \Cool\Service {
 
 	protected $container;
-	protected $arguments;
+	protected $commands;
 	protected static $parentAction = '';
 	protected static $command = '';
 
@@ -16,24 +16,39 @@ abstract class Action implements \Cool\Service {
 		&& $commandSet['command'] == self::$command);
 	}
 
-	public function setArguments($arguments) {
-		$this->arguments = $arguments;
+	public function setCommands($commands) {
+		$this->commands = $commands;
 	}
 
-	public function getArguments() {
-		return $this->arguments;
+	public function getCommands() {
+		return $this->commands;
 	}
 
 	public abstract function go();
 
 	public function handleSubcommand() {
-		$arguments = $this->arguments;
-		$command = array_shift($arguments);
-		$commandSet = array('parent' => $this, 'command' => $command);
-		$service = $this->container->getService('Ext\Action', $commandSet); 
-		$service->setArguments($arguments);
-		$service->go();
+		$commands = $this->commands;
+		$command = array_shift($commands);
+		try {
+			$commandSet = array('parent' => $this, 'command' => $command);
+			$service = $this->container->getService('Ext\Action', $commandSet); 
+			$service->setCommands($commands);
+			$service->go();
+		} catch(\Exception $e) {
+			print "Usage:\n";
+			print "======\n\n";
+			print $this->usage();	
+			print "\n\n";
+			print "Help:\n";
+			print "======\n\n";
+			print $this->help();	
+			print "\n\n";
+		}
 	}
+
+	public abstract function usage();
+
+	public abstract function help();
 
 }
 	
