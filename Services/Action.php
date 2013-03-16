@@ -2,48 +2,31 @@
 
 abstract class Action implements ActionService {
 
-	protected static $expectedParentAction = '';
-	protected static $command = '';
+	static protected $parentActionToServeFor = NULL;
+	static protected $commandToServeFor = NULL;
+
 	protected $container = NULL;
 	private $parentObject = NULL;
 	private $commands = array();
 
 	public abstract function usage();
-
 	public abstract function help();
-
-	public function __construct(\Cool\Container $container) {
-		$this->container = $container;
-	}
-
-	public static function canServe($commandSet) {
-		return (get_class($commandSet['parent']) == self::$expectedParentAction
-		&& $commandSet['command'] == self::$command);
-	}
-
-	public function setParentAction(ActionService $parent) {
-		$this->parentObject = $parent;	
-	}
-
-	public function getParentAction() {
-		return $this->parentObject;	
-	}
-
-	public function hasParentAction() {
-		return (bool) $this->parentObject;
-	}
-
-	public function setCommands($commands) {
-		$this->commands = $commands;
-	}
-
-	public function getCommands() {
-		return $this->commands;
-	}
-
 	public abstract function go();
 
-	protected function handleSubcommand() {
+	public function __construct(\Cool\Container $container) { $this->container = $container; }
+	public function setCommands($commands) { $this->commands = $commands; } 
+	public function getCommands() { return $this->commands; }
+
+	// Deliberately not part of ActionService interface
+	// Maybe have a dedicated ContainerAccess interface
+	public function getContainer() { return $this->container; }
+
+	public static function canServe($commandSet) {
+		return get_class($commandSet['parent']) == static::$parentActionToServeFor 
+		&& $commandSet['command'] == static::$commandToServeFor;
+	}
+
+	public function handleSubcommand() {
 		$commands = $this->commands;
 		$command = array_shift($commands);
 		try {
@@ -52,17 +35,25 @@ abstract class Action implements ActionService {
 			$service->setCommands($commands);
 			$service->go();
 		} catch(\Exception $e) {
-			print "Usage:\n";
-			print "======\n\n";
-			print $this->usage();	
-			print "\n\n";
-			print "Help:\n";
-			print "======\n\n";
-			print $this->help();	
-			print "\n\n";
+			$this->showSpecialHelp();
 		}
 	}
 
+	public function showGeneralHelp() {
+		print "ext help";
+	}
+
+
+	public function showSpecialHelp() {
+		print "Usage:\n";
+		print "======\n\n";
+		print $this->usage();	
+		print "\n\n";
+		print "Help:\n";
+		print "======\n\n";
+		print $this->help();	
+		print "\n\n";
+	}
 
 }
 	

@@ -36,7 +36,10 @@ class ExtensionContext implements \Cool\Singleton {
 	}
 
 	public function getProperty($key) { 
-		return $this->properties[$key];
+		if(isset($this->properties[$key])) 
+			return $this->properties[$key];
+		else 
+			return '';
 	}
 
 	public function getProperties() { 

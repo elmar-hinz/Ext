@@ -1,9 +1,6 @@
-#!/bin/bash
+<?php
 
-echo "ext - a TER commandline client"
-
-php -r '
 require_once(__DIR__."/Configuration/Ext.php");
 Ext::main($argv);
-' $argv
 
+?>

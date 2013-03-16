@@ -15,8 +15,16 @@ Installation
         cd Cool/Modules
         git clone https://github.com/t3elmar/Ext.git
         cd Ext
+
+currently::
+
+        php ext.inc help
+
+planned::
+
         chmod +x ext
         ./ext help
+
 
 TODO: How to install it easy into PATH?
 

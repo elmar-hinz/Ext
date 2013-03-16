@@ -39,10 +39,10 @@ class ActionTest extends \PHPUnit_Framework_Testcase {
 	*/
 	function canServe_works() {
 		$class = new \ReflectionClass('Ext\Action');
-		$p = $class->getProperty('expectedParentAction');
+		$p = $class->getProperty('parentActionToServeFor');
 		$p->setAccessible(TRUE);
 		$p->setValue('ParentAction');
-		$p = $class->getProperty('command');
+		$p = $class->getProperty('commandToServeFor');
 		$p->setAccessible(TRUE);
 		$p->setValue('right_command');
 		$parent= $this->getMockForAbstractClass('\Ext\Action', array(), 'ParentAction', FALSE);
