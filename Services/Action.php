@@ -1,19 +1,36 @@
 <?php namespace Ext;
 
-abstract class Action implements \Cool\Service {
+abstract class Action implements ActionService {
 
-	protected $container;
-	protected $commands;
-	protected static $parentAction = '';
+	protected static $expectedParentAction = '';
 	protected static $command = '';
+	protected $container = NULL;
+	private $parentObject = NULL;
+	private $commands = array();
+
+	public abstract function usage();
+
+	public abstract function help();
 
 	public function __construct(\Cool\Container $container) {
 		$this->container = $container;
 	}
 
 	public static function canServe($commandSet) {
-		return (get_class($commandSet['parent']) == self::$parentAction 
+		return (get_class($commandSet['parent']) == self::$expectedParentAction
 		&& $commandSet['command'] == self::$command);
+	}
+
+	public function setParentAction(ActionService $parent) {
+		$this->parentObject = $parent;	
+	}
+
+	public function getParentAction() {
+		return $this->parentObject;	
+	}
+
+	public function hasParentAction() {
+		return (bool) $this->parentObject;
 	}
 
 	public function setCommands($commands) {
@@ -26,7 +43,7 @@ abstract class Action implements \Cool\Service {
 
 	public abstract function go();
 
-	public function handleSubcommand() {
+	protected function handleSubcommand() {
 		$commands = $this->commands;
 		$command = array_shift($commands);
 		try {
@@ -46,9 +63,6 @@ abstract class Action implements \Cool\Service {
 		}
 	}
 
-	public abstract function usage();
-
-	public abstract function help();
 
 }
 	

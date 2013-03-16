@@ -39,7 +39,7 @@ class ActionTest extends \PHPUnit_Framework_Testcase {
 	*/
 	function canServe_works() {
 		$class = new \ReflectionClass('Ext\Action');
-		$p = $class->getProperty('parentAction');
+		$p = $class->getProperty('expectedParentAction');
 		$p->setAccessible(TRUE);
 		$p->setValue('ParentAction');
 		$p = $class->getProperty('command');
