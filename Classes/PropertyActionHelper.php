@@ -1,29 +1,36 @@
 <?php namespace Ext;
 
 /**
-* Strategie pattern
+* Strategie pattern?
 */
 class PropertyActionHelper {
 
 	private $action;
-	protected $container;
+	private $context;
 
 	public function injectAction(\Ext\Action $action) {
 		$this->action = $action;
+		$this->context = $this->action->getContext();
 	}
 
-	public function go($propertyName) {
-		if(count($this->action->getCommands()) == 0) {
-			$context = $this->action->getContainer()->getInstance('Ext\ExtensionContext');
-			if($context->isValid())
-				print $context->getProperty($propertyName) . chr(10);
-			else 
-				print 'You are not in an extension.' . chr(10);
+	public function validateContext() {
+		if(!$this->context->isValid()) {
+			$this->action->error('You are not in an extension.');
+			return FALSE;
 		} else {
-			$this->action->showSpecialHelp();
+			return TRUE;
 		}
 	}
+
+	public function setProperty($key, $value) {
+		$this->context->setProperty($key, $value);
+		$this->printProperty($key);
+	}
+
+	public function printProperty($key) {
+		print $this->context->getProperty($key) . chr(10);
+	}
+
 }
 
 ?>
-
