@@ -4,7 +4,7 @@ Draft
 
  * Author: Elmar Hinz
  * Status: Alpha
- * Last update: 2013-03-15
+ * Last update: 2013-03-17
 
 Installation
 ============
@@ -16,11 +16,7 @@ Installation
         git clone https://github.com/t3elmar/Ext.git
         cd Ext/bin
         chmod +x ext
-        ./ext help
-
-
-TODO: How to install it easy into PATH?
-
+        ./ext install 
 
 Usage (planned)
 ===============
