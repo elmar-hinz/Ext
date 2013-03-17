@@ -2,8 +2,8 @@
 
 class MainAction extends Action {
 
-	public function go() {
-		$this->handleSubcommand();
+	public function handleCommand() {
+		return $this->handleSubcommand();
 	}
 
 	public function usage() {

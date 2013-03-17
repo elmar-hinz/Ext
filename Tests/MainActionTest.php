@@ -3,30 +3,34 @@
 class MainActionTest extends \PHPUnit_Framework_Testcase {
 
 	private $container;
-	private $action;
+	private $sut;
 	private $actionClassReflector;
 	private $actionObjectReflector;
 
 	public function setUp() {
 		require_once(__DIR__.'/../../Cool/Classes/LoadTestHelper.php');
 		\Cool\LoadTestHelper::loadAll();
-		$container = new \Cool\Container();
-		$this->action = $container->getInstance('Ext\MainAction');
+		$this->sut = $this->getMockBuilder('\Ext\MainAction')->disableOriginalConstructor()
+		->setMethods(array('handleSubcommand'))->getMock();
 	}
 
 	/**
 	* @test
 	*/
 	function action_can_be_created() {
-		$this->assertInstanceOf('Ext\MainAction', $this->action);
-		$this->assertInstanceOf('Ext\Action', $this->action);
+		$this->assertInstanceOf('Ext\MainAction', $this->sut);
+		$this->assertInstanceOf('Ext\Action', $this->sut);
 	}
 
 	/**
 	* @test
 	*/
-	function xxx() {
+	function handleCommand_calls_handleSubcommand() {
+		$this->sut->expects($this->once())->method('handleSubcommand')
+		->will($this->returnValue(TRUE));
+		$this->assertTrue($this->sut->handleCommand());
 	}
+
 }
 
 ?>

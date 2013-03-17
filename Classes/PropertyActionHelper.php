@@ -11,15 +11,6 @@ class PropertyActionHelper {
 		$this->action = $action;
 	}
 
-	public function validateContext() {
-		if(!$this->action->isContextValid()) {
-			$this->action->error('You are not in an extension.');
-			return FALSE;
-		} else {
-			return TRUE;
-		}
-	}
-
 	public function setProperty($key, $value) {
 		$this->action->setContextProperty($key, $value);
 		$this->printProperty($key);

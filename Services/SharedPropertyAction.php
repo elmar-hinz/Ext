@@ -1,24 +1,22 @@
 <?php namespace Ext;
 
-class SharedPropertyAction extends Action {
+class SharedPropertyAction extends Action implements ExtensionContextSensitivity {
 
 	static protected $parentActionToServeFor = 'Ext\MainAction';
 	static protected $commandsToServeFor = 'user, version, status, description';
 
-	public function go() {
+	public function handleCommand() {
 		$helper = $this->container->getInstance('Ext\PropertyActionHelper');
 		$helper->injectAction($this);
-		if(!$helper->validateContext()) return;
 		$key = $this->getCalledCommand();
 		switch($this->countCommands()) {
 			case 0:
 				$helper->printProperty($key);
+				return TRUE;
 				break;
 			case 1:
 				$helper->setProperty($key, $this->getCommand(0));
-				break;
-			default:
-				$this->showSpecialHelp();
+				return TRUE;
 				break;
 		}
 	}

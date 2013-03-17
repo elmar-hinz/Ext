@@ -11,7 +11,6 @@ abstract class Action implements ActionService {
 
 	public abstract function usage();
 	public abstract function help();
-	public abstract function go();
 
 	public function __construct(\Cool\Container $container) { 
 		$this->container = $container; 
@@ -32,6 +31,17 @@ abstract class Action implements ActionService {
 		return FALSE;
 	}
 
+	public function go() {
+		if($this instanceOf ExtensionContextSensitivity && !$this->isContextValid()) {
+				$this->exitError('You are not in an extension.');
+		}
+		if(!$this->handleCommand()) {
+			$this->showSpecialHelp();
+		}
+	}
+
+	public abstract function handleCommand(); 
+
 	public function handleSubcommand() {
 		$commands = $this->getCommands();
 		$subCommand = array_shift($commands);
@@ -41,8 +51,9 @@ abstract class Action implements ActionService {
 			$service->setCalledCommand($subCommand);
 			$service->setCommands($commands);
 			$service->go();
+			return TRUE;
 		} catch(\Exception $e) {
-			$this->showSpecialHelp();
+			return FALSE;
 		}
 	}
 
@@ -61,11 +72,15 @@ abstract class Action implements ActionService {
 		print "\n\n";
 	}
 
-	public function error($msg) {
-		print 'ERROR: ' . $msg . chr(10);
+	public function exitError($msg) {
+		exit('ERROR: ' . $msg . chr(10));
 	}
 
-	// Law of demeter: context interface
+	///////////////////////////////////////////////////
+	// Law of demeter: decouple access to my friends //
+	//                                               //        
+	// Also simplyfies unit testing.                 //
+	///////////////////////////////////////////////////
 
 	private function getContext() { 
 		return $this->context = $this->container->getInstance('Ext\ExtensionContext');
@@ -90,4 +105,3 @@ abstract class Action implements ActionService {
 }
 
 ?>
-

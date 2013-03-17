@@ -30,26 +30,6 @@ class PropertyActionHelperTest extends \PHPUnit_Framework_Testcase {
 	/**
 	* @test
 	*/
-	public function context_can_be_validated_to_true() {
-		$this->action->expects($this->once())->method('isContextValid')
-		->will($this->returnValue(TRUE));
-		$this->assertTrue($this->sut->validateContext());
-	}
-
-	/**
-	* @test
-	*/
-	public function context_can_be_validated_to_false() {
-		$this->action->expects($this->once())->method('isContextValid')
-		->will($this->returnValue(FALSE));
-		$this->action->expects($this->once())->method('error')
-		->with($this->equalTo('You are not in an extension.'));
-		$this->assertFalse($this->sut->validateContext());
-	}
-
-	/**
-	* @test
-	*/
 	public function setProperty_works() {
 		$key = 'key'; $value = 'value';
 		$this->action->expects($this->once())->method('setContextProperty')

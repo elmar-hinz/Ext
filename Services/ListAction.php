@@ -1,18 +1,16 @@
 <?php namespace Ext;
 
-class ListAction extends Action {
+class ListAction extends Action implements ExtensionContextSensitivity {
 
 	static protected $parentActionToServeFor = 'Ext\MainAction';
 	static protected $commandsToServeFor = 'list, show, info';
 
-	public function go() {
-		if(!$this->isContextValid()) {
-			$this->error('You are not in an extension.');
-		} else if ($this->countCommands() == 0) {
+	public function handleCommand() {
+		if ($this->countCommands() == 0) {
 			print_r($this->getContextProperties());
-		} else {
-			$this->showSpecialHelp();
-		}
+			return TRUE;
+		} 
+		return FALSE;
 	}
 
 	public function usage() {
@@ -22,6 +20,7 @@ class ListAction extends Action {
 	public function help() {
 		return ("ext list => list all properties of ext_emconf.php");
 	}
+
 }
 
 ?>
