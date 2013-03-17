@@ -22,7 +22,16 @@ class SharedPropertyAction extends Action implements ExtensionContextSensitivity
 	}
 
 	public function usage() {
-		return ("TODO");
+		return ("
+			ext user : get the TER username
+			ext user myname : set the TER username
+			ext version : get the version
+			ext version xx.xx.xx: set the extension version xx.xx.xx
+			ext status : get the status 
+			ext status alpha : set the status to alpha
+			ext description : get the description
+			ext description 'my text here' : set the description 
+	");
 	}
 
 	public function help() {

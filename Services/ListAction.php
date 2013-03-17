@@ -14,7 +14,9 @@ class ListAction extends Action implements ExtensionContextSensitivity {
 	}
 
 	public function usage() {
-		return ("ext list");
+		return ("
+			ext list : list settings (alias show, info)
+		");
 	}
 
 	public function help() {

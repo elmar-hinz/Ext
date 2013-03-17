@@ -10,7 +10,9 @@ class InstallAction extends Action {
 	}
 
 	public function usage() {
-		return ("TODO");
+		return ("
+			ext install : support to install
+		");
 	}
 
 	public function help() {

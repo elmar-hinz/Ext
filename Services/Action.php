@@ -62,14 +62,7 @@ abstract class Action implements ActionService {
 	}
 
 	public function showSpecialHelp() {
-		print "Usage:\n";
-		print "======\n\n";
-		print $this->usage();	
-		print "\n\n";
-		print "Help:\n";
-		print "======\n\n";
 		print $this->help();	
-		print "\n\n";
 	}
 
 	public function exitError($msg) {

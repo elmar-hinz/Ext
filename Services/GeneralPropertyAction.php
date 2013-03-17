@@ -25,7 +25,10 @@ class GeneralPropertyAction extends Action implements ExtensionContextSensitivit
 	}
 
 	public function usage() {
-		return ("TODO");
+		return ("
+			ext property mykey : get a property (alias get)
+			ext property mykey myvalue : set a property (alias set)
+		");
 	}
 
 	public function help() {
