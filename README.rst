@@ -14,7 +14,7 @@ Installation
         git clone https://github.com/t3elmar/Cool.git
         cd Cool/Modules
         git clone https://github.com/t3elmar/Ext.git
-        cd Ext
+        cd Ext/bin
         chmod +x ext
         ./ext help
 
