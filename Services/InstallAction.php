@@ -1,6 +1,6 @@
 <?php namespace Ext;
 
-class InstallAction extends Action implements ExtensionContextSensitivity {
+class InstallAction extends Action {
 
 	static protected $parentActionToServeFor = 'Ext\MainAction';
 	static protected $commandsToServeFor = 'install';
