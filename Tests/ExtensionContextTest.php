@@ -14,7 +14,7 @@ class ExtensionContextTest extends \PHPUnit_Framework_Testcase {
 		require_once(__DIR__.'/../../Cool/Classes/LoadTestHelper.php');
 		\Cool\LoadTestHelper::loadAll();
 
-		// worker expectations need for all tests
+		// worker expectations needed for all tests
 		$this->worker= $this->getMockBuilder('\Ext\Worker')->getMock();
 
 		// -> method: findPathOfCurrentExtension

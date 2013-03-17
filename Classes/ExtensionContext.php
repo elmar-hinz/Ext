@@ -20,7 +20,7 @@ class ExtensionContext implements \Cool\Singleton {
 	}
 	
 	public function isValid() { 
-		return (bool) $this->extensionPath;
+		return (bool) $this->getExtensionPath();
 	}
 
 	public function getExtensionPath() { 
@@ -50,16 +50,16 @@ class ExtensionContext implements \Cool\Singleton {
 
 	protected function findExtension() { 
 		$this->extensionPath = $this->worker->findPathOfCurrentExtension();
-		$this->extensionKey = $this->worker->getKeyFromExtensionPath($this->extensionPath);
+		$this->extensionKey = $this->worker->getKeyFromExtensionPath($this->getExtensionPath());
 	}
 
 	protected function loadEmconf() {
-		$this->properties = $this->worker->readEmConf($this->extensionPath);
+		$this->properties = $this->worker->readEmConf($this->getExtensionPath());
 	}
 
 	protected function storeEmconf() {
 		
-		$this->worker->writeEmConf($this->extensionPath, $this->extensionKey, $this->getProperties());
+		$this->worker->writeEmConf($this->getExtensionPath(), $this->extensionKey, $this->getProperties());
 	}
 
 }

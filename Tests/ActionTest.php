@@ -37,18 +37,30 @@ class ActionTest extends \PHPUnit_Framework_Testcase {
 	/**
 	* @test
 	*/
+	function getCommand_by_index_works() {
+		$myCommands = array('some', 'command', 'do');
+		$this->action->setCommands($myCommands);
+		$this->assertSame('some', $this->action->getCommand(0));
+		$this->assertSame('command', $this->action->getCommand(1));
+	}
+
+	/**
+	* @test
+	*/
 	function canServe_works() {
 		$class = new \ReflectionClass('Ext\Action');
 		$p = $class->getProperty('parentActionToServeFor');
 		$p->setAccessible(TRUE);
 		$p->setValue('ParentAction');
-		$p = $class->getProperty('commandToServeFor');
+		$p = $class->getProperty('commandsToServeFor');
 		$p->setAccessible(TRUE);
-		$p->setValue('right_command');
+		$p->setValue('show, list');
 		$parent= $this->getMockForAbstractClass('\Ext\Action', array(), 'ParentAction', FALSE);
-		$commandSet = array('parent' => $parent, 'command' => 'right_command'); 
+		$commandSet = array('parent' => $parent, 'command' => 'show'); 
 		$this->assertTrue($class->getMethod('canServe')->invoke(NULL, $commandSet));
-		$commandSet = array('parent' => $parent, 'command' => 'worng_command'); 
+		$commandSet = array('parent' => $parent, 'command' => 'list'); 
+		$this->assertTrue($class->getMethod('canServe')->invoke(NULL, $commandSet));
+		$commandSet = array('parent' => $parent, 'command' => 'invalid'); 
 		$this->assertFalse($class->getMethod('canServe')->invoke(NULL, $commandSet));
 	}
 
@@ -79,4 +91,3 @@ class ActionTest extends \PHPUnit_Framework_Testcase {
 }
 
 ?>
-

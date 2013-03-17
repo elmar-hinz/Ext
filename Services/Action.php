@@ -6,8 +6,6 @@ abstract class Action implements ActionService {
 	static protected $commandsToServeFor = '';
 
 	protected $container = NULL;
-	protected $context = NULL;
-	private $parentObject = NULL;
 	private $commands = array();
 	private $calledCommand = '';
 
@@ -17,7 +15,6 @@ abstract class Action implements ActionService {
 
 	public function __construct(\Cool\Container $container) { 
 		$this->container = $container; 
-		$this->context = $container->getInstance('Ext\ExtensionContext');
 	}
 	public function setCalledCommand($command) { $this->calledCommand = $command; } 
 	public function getCalledCommand() { return $this->calledCommand; } 
@@ -27,23 +24,21 @@ abstract class Action implements ActionService {
 	public function getCommand($index) { 
 		if(isset($this->commands[$index])) return $this->commands[$index];
 	}
-	public function getContext() { return $this->context; }
-
 	public static function canServe($commandSet) {
 		$parentMatches = get_class($commandSet['parent']) == static::$parentActionToServeFor;
-		$commands = array_map('trim', explode(',', static::$commandsToServeFor));
-		if($parentMatches) foreach($commands as $command) 
-			if($command == $commandSet['command']) return TRUE;
+		$myCommands = array_map('trim', explode(',', static::$commandsToServeFor));
+		if($parentMatches) foreach($myCommands as $myCommand) 
+			if($myCommand == $commandSet['command']) return TRUE;
 		return FALSE;
 	}
 
 	public function handleSubcommand() {
-		$commands = $this->commands;
-		$command = array_shift($commands);
+		$commands = $this->getCommands();
+		$subCommand = array_shift($commands);
 		try {
-			$commandSet = array('parent' => $this, 'command' => $command);
+			$commandSet = array('parent' => $this, 'command' => $subCommand);
 			$service = $this->container->getService('Ext\Action', $commandSet); 
-			$service->setCalledCommand($command);
+			$service->setCalledCommand($subCommand);
 			$service->setCommands($commands);
 			$service->go();
 		} catch(\Exception $e) {
@@ -54,7 +49,6 @@ abstract class Action implements ActionService {
 	public function showGeneralHelp() {
 		print "ext help";
 	}
-
 
 	public function showSpecialHelp() {
 		print "Usage:\n";
@@ -68,7 +62,29 @@ abstract class Action implements ActionService {
 	}
 
 	public function error($msg) {
-		print 'ERROR' . $msg . chr(10);
+		print 'ERROR: ' . $msg . chr(10);
+	}
+
+	// Law of demeter: context interface
+
+	private function getContext() { 
+		return $this->context = $this->container->getInstance('Ext\ExtensionContext');
+	}
+
+	public function getContextProperty($key) { 
+		return $this->getContext()->getProperty($key);
+	}
+
+	public function setContextProperty($key, $value) { 
+		return $this->getContext()->setProperty($key, $value);
+	}
+
+	public function getContextProperties() { 
+		return $this->getContext()->getProperties();
+	}
+
+	public function isContextValid() {
+		return $this->getContext()->isValid();
 	}
 
 }

@@ -10,8 +10,14 @@ interface ActionService extends \Cool\Service {
 	public function getCommands();
 	public function getCommand($index);
 	public function countCommands();
-	public function getContext();
 	public function go();
+
+	// Law of demeter: context interface
+	public function isContextValid();
+	public function getContextProperty($key);
+	public function setContextProperty($key, $values);
+	public function getContextProperties();
+
 } 
 
 ?>

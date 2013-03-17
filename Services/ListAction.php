@@ -6,7 +6,13 @@ class ListAction extends Action {
 	static protected $commandsToServeFor = 'list, show, info';
 
 	public function go() {
-		print_r($this->context->getProperties());
+		if(!$this->isContextValid()) {
+			$this->error('You are not in an extension.');
+		} else if ($this->countCommands() == 0) {
+			print_r($this->getContextProperties());
+		} else {
+			$this->showSpecialHelp();
+		}
 	}
 
 	public function usage() {

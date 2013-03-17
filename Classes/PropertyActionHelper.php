@@ -6,15 +6,13 @@
 class PropertyActionHelper {
 
 	private $action;
-	private $context;
 
 	public function injectAction(\Ext\Action $action) {
 		$this->action = $action;
-		$this->context = $this->action->getContext();
 	}
 
 	public function validateContext() {
-		if(!$this->context->isValid()) {
+		if(!$this->action->isContextValid()) {
 			$this->action->error('You are not in an extension.');
 			return FALSE;
 		} else {
@@ -23,12 +21,12 @@ class PropertyActionHelper {
 	}
 
 	public function setProperty($key, $value) {
-		$this->context->setProperty($key, $value);
+		$this->action->setContextProperty($key, $value);
 		$this->printProperty($key);
 	}
 
 	public function printProperty($key) {
-		print $this->context->getProperty($key) . chr(10);
+		print $this->action->getContextProperty($key) . chr(10);
 	}
 
 }
