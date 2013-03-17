@@ -20,7 +20,7 @@ class ActionTest extends \PHPUnit_Framework_Testcase {
 		// action
 		$this->action = $this->getMockBuilder('\Ext\Action')
 		->setConstructorArgs(array($this->container))
-		->setMethods(array('handleCommand', 'usage', 'help'))->getMock();
+		->setMethods(array('handleArgument', 'usage', 'help'))->getMock();
 		$this->action->expects($this->any())->method('go');
 
 		// action reflector
@@ -39,38 +39,38 @@ class ActionTest extends \PHPUnit_Framework_Testcase {
 	/**
 	* @test
 	*/
-	function setCalledCommand_and_getCalledCommand_works() {
-		$command = 'test';
-		$this->action->setCalledCommand($command);
-		$this->assertEquals($command, $this->action->getCalledCommand());
+	function setCalledArgument_and_getCalledArgument_works() {
+		$argument = 'test';
+		$this->action->setCalledArgument($argument);
+		$this->assertEquals($argument, $this->action->getCalledArgument());
 	}
 
 	/**
 	* @test
 	*/
-	function setCommands_and_getCommands_works() {
-		$myCommands = array('some', 'command', 'do');
-		$this->action->setCommands($myCommands);
-		$this->assertSame($myCommands, $this->action->getCommands());
+	function setArguments_and_getArguments_works() {
+		$myArguments = array('some', 'argument', 'do');
+		$this->action->setArguments($myArguments);
+		$this->assertSame($myArguments, $this->action->getArguments());
 	}
 
 	/**
 	* @test
 	*/
-	function getCommand_by_index_works() {
-		$myCommands = array('some', 'command', 'do');
-		$this->action->setCommands($myCommands);
-		$this->assertSame('some', $this->action->getCommand(0));
-		$this->assertSame('command', $this->action->getCommand(1));
+	function getArgument_by_index_works() {
+		$myArguments = array('some', 'argument', 'do');
+		$this->action->setArguments($myArguments);
+		$this->assertSame('some', $this->action->getArgument(0));
+		$this->assertSame('argument', $this->action->getArgument(1));
 	}
 
 	/**
 	* @test
 	*/
-	function countCommands_works() {
-		$myCommands = array('some', 'command', 'do');
-		$this->action->setCommands($myCommands);
-		$this->assertEquals(3, $this->action->countCommands());
+	function countArguments_works() {
+		$myArguments = array('some', 'argument', 'do');
+		$this->action->setArguments($myArguments);
+		$this->assertEquals(3, $this->action->countArguments());
 	}
 
 	/**
@@ -81,16 +81,16 @@ class ActionTest extends \PHPUnit_Framework_Testcase {
 		$p = $class->getProperty('parentActionToServeFor');
 		$p->setAccessible(TRUE);
 		$p->setValue('ParentAction');
-		$p = $class->getProperty('commandsToServeFor');
+		$p = $class->getProperty('argumentsToServeFor');
 		$p->setAccessible(TRUE);
 		$p->setValue('show, list');
 		$parent= $this->getMockForAbstractClass('\Ext\Action', array(), 'ParentAction', FALSE);
-		$commandSet = array('parent' => $parent, 'command' => 'show'); 
-		$this->assertTrue($class->getMethod('canServe')->invoke(NULL, $commandSet));
-		$commandSet = array('parent' => $parent, 'command' => 'list'); 
-		$this->assertTrue($class->getMethod('canServe')->invoke(NULL, $commandSet));
-		$commandSet = array('parent' => $parent, 'command' => 'invalid'); 
-		$this->assertFalse($class->getMethod('canServe')->invoke(NULL, $commandSet));
+		$argumentSet = array('parent' => $parent, 'argument' => 'show'); 
+		$this->assertTrue($class->getMethod('canServe')->invoke(NULL, $argumentSet));
+		$argumentSet = array('parent' => $parent, 'argument' => 'list'); 
+		$this->assertTrue($class->getMethod('canServe')->invoke(NULL, $argumentSet));
+		$argumentSet = array('parent' => $parent, 'argument' => 'invalid'); 
+		$this->assertFalse($class->getMethod('canServe')->invoke(NULL, $argumentSet));
 	}
 
 	/**
@@ -117,23 +117,23 @@ class ActionTest extends \PHPUnit_Framework_Testcase {
 	/**
 	* @test
 	*/
-	function handleSubcommand_works() {
+	function handleSubArgument_works() {
 		// expectations of the child action service
 		$childAction = $this->getMockBuilder('\Ext\Action')
 		->setConstructorArgs(array($this->container))->getMock();
 		$childAction->expects($this->once())->method('go');
-		$childAction->expects($this->once())->method('setCommands')
-		->with($this->equalTo(array('subsubcommand')));
+		$childAction->expects($this->once())->method('setArguments')
+		->with($this->equalTo(array('subSubArgument')));
 
 		// expectations of the queried container
-		$expectedCommandSet = array('parent' => $this->action, 'command' => 'subcommand');
+		$expectedArgumentSet = array('parent' => $this->action, 'argument' => 'subArgument');
 		$this->container->expects($this->once())->method('getService')
-		->with($this->equalTo('Ext\Action'), $this->equalTo($expectedCommandSet))
+		->with($this->equalTo('Ext\Action'), $this->equalTo($expectedArgumentSet))
 		->will($this->returnValue($childAction));
 
 		// run test
-		$this->action->setCommands(array('subcommand', 'subsubcommand'));
-		$m = $this->actionObjectReflector->getMethod('handleSubcommand');
+		$this->action->setArguments(array('subArgument', 'subSubArgument'));
+		$m = $this->actionObjectReflector->getMethod('handleSubArgument');
 		$m->setAccessible(TRUE);
 		$m->invoke($this->action);
 	}

@@ -3,11 +3,11 @@
 abstract class Action implements ActionService {
 
 	static protected $parentActionToServeFor = NULL;
-	static protected $commandsToServeFor = '';
+	static protected $argumentsToServeFor = '';
 
 	protected $container = NULL;
-	private $commands = array();
-	private $calledCommand = '';
+	private $arguments = array();
+	private $calledArgument = '';
 
 	public abstract function usage();
 	public abstract function help();
@@ -15,19 +15,19 @@ abstract class Action implements ActionService {
 	public function __construct(\Cool\Container $container) { 
 		$this->container = $container; 
 	}
-	public function setCalledCommand($command) { $this->calledCommand = $command; } 
-	public function getCalledCommand() { return $this->calledCommand; } 
-	public function countCommands() { return count($this->commands); }
-	public function setCommands($commands) { $this->commands = $commands; } 
-	public function getCommands() { return $this->commands; }
-	public function getCommand($index) { 
-		if(isset($this->commands[$index])) return $this->commands[$index];
+	public function setCalledArgument($argument) { $this->calledArgument = $argument; } 
+	public function getCalledArgument() { return $this->calledArgument; } 
+	public function countArguments() { return count($this->arguments); }
+	public function setArguments($arguments) { $this->arguments = $arguments; } 
+	public function getArguments() { return $this->arguments; }
+	public function getArgument($index) { 
+		if(isset($this->arguments[$index])) return $this->arguments[$index];
 	}
-	public static function canServe($commandSet) {
-		$parentMatches = get_class($commandSet['parent']) == static::$parentActionToServeFor;
-		$myCommands = array_map('trim', explode(',', static::$commandsToServeFor));
-		if($parentMatches) foreach($myCommands as $myCommand) 
-			if($myCommand == $commandSet['command']) return TRUE;
+	public static function canServe($argumentSet) {
+		$parentMatches = get_class($argumentSet['parent']) == static::$parentActionToServeFor;
+		$myArguments = array_map('trim', explode(',', static::$argumentsToServeFor));
+		if($parentMatches) foreach($myArguments as $myArgument) 
+			if($myArgument == $argumentSet['argument']) return TRUE;
 		return FALSE;
 	}
 
@@ -35,21 +35,21 @@ abstract class Action implements ActionService {
 		if($this instanceOf ExtensionContextSensitivity && !$this->isContextValid()) {
 				$this->exitError('You are not in an extension.');
 		}
-		if(!$this->handleCommand()) {
+		if(!$this->handleArgument()) {
 			$this->showSpecialHelp();
 		}
 	}
 
-	public abstract function handleCommand(); 
+	public abstract function handleArgument(); 
 
-	public function handleSubcommand() {
-		$commands = $this->getCommands();
-		$subCommand = array_shift($commands);
+	public function handleSubArgument() {
+		$arguments = $this->getArguments();
+		$subArgument = array_shift($arguments);
 		try {
-			$commandSet = array('parent' => $this, 'command' => $subCommand);
-			$service = $this->container->getService('Ext\Action', $commandSet); 
-			$service->setCalledCommand($subCommand);
-			$service->setCommands($commands);
+			$argumentSet = array('parent' => $this, 'argument' => $subArgument);
+			$service = $this->container->getService('Ext\Action', $argumentSet); 
+			$service->setCalledArgument($subArgument);
+			$service->setArguments($arguments);
 			$service->go();
 			return TRUE;
 		} catch(\Exception $e) {

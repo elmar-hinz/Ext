@@ -4,15 +4,15 @@ interface ActionService extends \Cool\Service {
 	public function usage();
 	public function help();
 	public function exitError($msg);
-	public function setCalledCommand($command);
-	public function getCalledCommand();
-	public function setCommands($commands);
-	public function getCommands();
-	public function getCommand($index);
-	public function countCommands();
+	public function setCalledArgument($argument);
+	public function getCalledArgument();
+	public function setArguments($arguments);
+	public function getArguments();
+	public function getArgument($index);
+	public function countArguments();
 	public function go();
-	public function handleCommand();
-	public function handleSubcommand();
+	public function handleArgument();
+	public function handleSubArgument();
 
 	// Law of demeter: context interface
 	public function isContextValid();

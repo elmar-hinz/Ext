@@ -11,7 +11,7 @@ class MainActionTest extends \PHPUnit_Framework_Testcase {
 		require_once(__DIR__.'/../../Cool/Classes/LoadTestHelper.php');
 		\Cool\LoadTestHelper::loadAll();
 		$this->sut = $this->getMockBuilder('\Ext\MainAction')->disableOriginalConstructor()
-		->setMethods(array('handleSubcommand'))->getMock();
+		->setMethods(array('handleSubArgument'))->getMock();
 	}
 
 	/**
@@ -25,10 +25,10 @@ class MainActionTest extends \PHPUnit_Framework_Testcase {
 	/**
 	* @test
 	*/
-	function handleCommand_calls_handleSubcommand() {
-		$this->sut->expects($this->once())->method('handleSubcommand')
+	function handleArgument_calls_handleSubArgument() {
+		$this->sut->expects($this->once())->method('handleSubArgument')
 		->will($this->returnValue(TRUE));
-		$this->assertTrue($this->sut->handleCommand());
+		$this->assertTrue($this->sut->handleArgument());
 	}
 
 }

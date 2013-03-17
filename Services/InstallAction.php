@@ -3,9 +3,9 @@
 class InstallAction extends Action {
 
 	static protected $parentActionToServeFor = 'Ext\MainAction';
-	static protected $commandsToServeFor = 'install';
+	static protected $argumentsToServeFor = 'install';
 
-	public function handleCommand() {
+	public function handleArgument() {
 		return FALSE; 
 	}
 

@@ -3,10 +3,10 @@
 class ListAction extends Action implements ExtensionContextSensitivity {
 
 	static protected $parentActionToServeFor = 'Ext\MainAction';
-	static protected $commandsToServeFor = 'list, show, info';
+	static protected $argumentsToServeFor = 'list, show, info';
 
-	public function handleCommand() {
-		if ($this->countCommands() == 0) {
+	public function handleArgument() {
+		if ($this->countArguments() == 0) {
 			print_r($this->getContextProperties());
 			return TRUE;
 		} 

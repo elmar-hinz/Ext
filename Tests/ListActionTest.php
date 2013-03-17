@@ -8,7 +8,7 @@ class ListActionTest extends \PHPUnit_Framework_Testcase {
 		require_once(__DIR__.'/../../Cool/Classes/LoadTestHelper.php');
 		\Cool\LoadTestHelper::loadAll();
 		$this->sut = $this->getMockBuilder('\Ext\ListAction')->disableOriginalConstructor()
-		->setMethods(array('getContextProperties', 'countCommands'))->getMock();
+		->setMethods(array('getContextProperties', 'countArguments'))->getMock();
 	}
 
 	/**
@@ -22,14 +22,14 @@ class ListActionTest extends \PHPUnit_Framework_Testcase {
 	/**
 	* @test
 	*/
-	public function handleCommand_prints_context_properties() {
+	public function handleArgument_prints_context_properties() {
 		$properties = array ('hello' => 'world');
-		$this->sut->expects($this->once())->method('countCommands')
+		$this->sut->expects($this->once())->method('countArguments')
 		->will($this->returnValue(0));
 		$this->sut->expects($this->once())->method('getContextProperties')
 		->will($this->returnValue($properties));
 		ob_start();
-		$this->sut->handleCommand();
+		$this->sut->handleArgument();
 		$out = ob_get_clean();
 		$this->assertEquals(1, substr_count($out,'Array'));
 		$this->assertEquals(1, substr_count($out,'hello'));

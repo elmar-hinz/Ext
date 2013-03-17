@@ -14,7 +14,7 @@ class Ext {
 		$container = new \Cool\Container();
 		$action = $container->getInstance('Ext\MainAction');
 		array_shift($argv);
-		$action->setCommands($argv);
+		$action->setArguments($argv);
 		$action->go();
 	}
 }
