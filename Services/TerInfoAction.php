@@ -12,10 +12,8 @@ class TerInfoAction extends Action {
 				$value = $this->getArgument(1);
 			case 1:
 				$key = $this->getArgument(0);
-				require_once(__DIR__.'/../../Typo3ExtensionUtils/lib/etobi/extensionUtils/Controller/TerController.php');
-				$terController = new \etobi\extensionUtils\Controller\TerController();
-				$terController->infoAction($key, $value);
-				return TRUE;
+				$worker = $this->container->getService('Ext\WorkerService');
+				return $worker->getExtensionInfoFromTer($key, $value);
 				break;
 		}
 	}

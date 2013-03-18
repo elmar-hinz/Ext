@@ -10,7 +10,7 @@ class ExtensionContext implements \Cool\Singleton {
 
 	public function __construct(\Cool\Container $container) {
 		$this->container = $container;
-		$this->worker = $this->container->getService('Ext\Worker');
+		$this->worker = $this->container->getService('Ext\WorkerService');
 		$this->findExtension();
 		if($this->isValid()) $this->loadEmconf();
 	}
