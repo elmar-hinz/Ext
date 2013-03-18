@@ -55,13 +55,48 @@
 </li>
 </ul><h1>Installation</h1>
 
+<h2>With git</h2>
+
+<p>I suggest to use copy and paste, all at once.</p>
+
 <div class="highlight"><pre>  git clone https://github.com/t3elmar/Cool.git
+
   <span class="nb">cd </span>Cool/Modules
+
   git clone https://github.com/etobi/Typo3ExtensionUtils.git
   git clone https://github.com/t3elmar/Ext.git
+
   <span class="nb">cd </span>Ext/bin
+
   chmod +x ext
   ./ext install 
+</pre></div>
+
+<h2>With wget and tar</h2>
+
+<p>I suggest to use copy and paste, all at once.</p>
+
+<div class="highlight"><pre>wget https://github.com/t3elmar/Cool/tarball/master -O cool.tgz
+tar xzf cool.tgz
+mv t3elmar-* Cool
+rm cool.tgz
+
+<span class="nb">cd </span>Cool/Modules/
+
+wget https://github.com/etobi/Typo3ExtensionUtils/tarball/master -O t3eu.tgz
+tar xzf t3eu.tgz 
+mv etobi-* Typo3ExtensionUtils
+rm t3eu.tgz
+
+wget https://github.com/t3elmar/Ext/tarball/master -O ext.tgz
+tar xzf ext.tgz
+mv t3elmar-* Ext
+rm ext.tgz
+
+<span class="nb">cd </span>Ext/bin
+
+chmod +x ext
+./ext install
 </pre></div>
 
 <h1>Usage</h1>
