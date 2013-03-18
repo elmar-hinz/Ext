@@ -20,6 +20,8 @@ Installation
 With git
 --------
 
+I suggest to use copy and paste.
+
 ```sh
   git clone https://github.com/t3elmar/Cool.git
   cd Cool/Modules
@@ -30,16 +32,18 @@ With git
   ./ext install 
 ```
 
-With wget
----------
+With wget and tar
+-----------------
+
+I suggest to use copy and paste.
 
 ```sh
-wget https://github.com/t3elmar/Cool/tarball/master -O Cool.tgz
+wget https://github.com/t3elmar/Cool/tarball/master -O cool.tgz
 tar xzf cool.tgz
 mv t3elmar-* Cool/
 rm cool.tgz
-cd Cool/Moldules/
-wget https://github.com/ etobi/Typo3ExtensionUtils/tarball/master -O t3eu.tgz
+cd Cool/Modules/
+wget https://github.com/etobi/Typo3ExtensionUtils/tarball/master -O t3eu.tgz
 tar xzf t3eu.tgz 
 mv etobi-* Typo3ExtensionUtils/
 rm t3eu.tgz
@@ -48,9 +52,8 @@ tar xzf ext.tgz
 mv t3elmar-* Ext/
 rm ext.tgz
 cd Ext/bin
-chmod +x
+chmod +x ext
 ./ext install
-
 ```
 
 Usage
