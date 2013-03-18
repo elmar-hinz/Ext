@@ -20,7 +20,7 @@ Installation
 With git
 --------
 
-I suggest to use copy and paste.
+I suggest to use copy and paste, all at once.
 
 ```sh
   git clone https://github.com/t3elmar/Cool.git
@@ -35,22 +35,25 @@ I suggest to use copy and paste.
 With wget and tar
 -----------------
 
-I suggest to use copy and paste.
+I suggest to use copy and paste, all at once.
 
 ```sh
 wget https://github.com/t3elmar/Cool/tarball/master -O cool.tgz
 tar xzf cool.tgz
-mv t3elmar-* Cool/
+mv t3elmar-* Cool
 rm cool.tgz
+
 cd Cool/Modules/
 wget https://github.com/etobi/Typo3ExtensionUtils/tarball/master -O t3eu.tgz
 tar xzf t3eu.tgz 
-mv etobi-* Typo3ExtensionUtils/
+mv etobi-* Typo3ExtensionUtils
 rm t3eu.tgz
+
 wget https://github.com/t3elmar/Ext/tarball/master -O ext.tgz
 tar xzf ext.tgz
-mv t3elmar-* Ext/
+mv t3elmar-* Ext
 rm ext.tgz
+
 cd Ext/bin
 chmod +x ext
 ./ext install
