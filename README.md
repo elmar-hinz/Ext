@@ -92,17 +92,17 @@ Usage
 TODO
 ====
 
-	* Add more TER features.
-	* Test it on windows.
-	* Document how to contribute modules.
+  * Add more TER features.
+  * Test it on windows.
+  * Document how to contribute modules.
 
 Wanted
 ======
 
-	* Testers
-	* Issus
-	* Pull requests
-	* Modules, that extend the functionality 
+  * Testers
+  * Issus
+  * Pull requests
+  * Modules, that extend the functionality 
 
  
 Have fun!
