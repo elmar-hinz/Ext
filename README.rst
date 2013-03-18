@@ -7,6 +7,7 @@ ext - commandline TER client
  * Last update: 2013-03-18
  * OS: Unix, Mac
  * Dependencies: 
+
     * php > 5.3
     * etobi/Typo3ExtensionUtils 
 
