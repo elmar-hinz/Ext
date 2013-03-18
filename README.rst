@@ -3,12 +3,15 @@ ext - commandline TER client
 ============================
 
  * Author: Elmar Hinz <t3elmar@googlemail.com>
- * Status: Alpha (but already usable)
+ * Version: 1.0.0
+ * Stability: Alpha/Usable
  * Last update: 2013-03-18
  * OS: Unix, Mac
  * Dependencies: 
-    * php > 5.3
+    * php > 5.3 with SOAP
+    * https://github.com/t3elmar/Cool.git
     * https://github.com/etobi/Typo3ExtensionUtils
+    * git (recommended for installation)
 
 Installation
 ============
