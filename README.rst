@@ -1,11 +1,14 @@
-=============================
-ext - commandline TER Client
-=============================
+===========================
+ext - commandline TER client 
+============================
 
  * Author: Elmar Hinz <t3elmar@googlemail.com>
  * Status: Alpha (but already usable)
  * Last update: 2013-03-18
  * OS: Unix, Mac
+ * Dependencies: 
+    * php > 5.3
+    * etobi/Typo3ExtensionUtils 
 
 Installation
 ============
@@ -43,4 +46,14 @@ Usage
   ext user myname                          => set the TER username
   ext version                              => get the version
   ext version xx.xx.xx                     => set the extension version xx.xx.xx
+
+Wanted
+======
+
+  * Testers
+  * Pull requests
+  * Modules, that extend the functionality 
+
+ 
+
 
