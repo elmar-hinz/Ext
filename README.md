@@ -1,15 +1,16 @@
 ============================
-ext - commandline TER client 
+ext - commandline ter client 
 ============================
 
  * Author: Elmar Hinz <t3elmar@googlemail.com>
+ * Homepage: http://t3elmar.github.com/Ext/
  * Version: 1.0.0
  * Stability: Alpha/Usable
  * Last update: 2013-03-18
- * OS: Unix, Mac
+ * OS: Unix, Mac, Linux, BSD
  * Dependencies: 
    * php > 5.3 with SOAP
-   * https://github.com/t3elmar/Cool.git
+   * https://github.com/t3elmar/Cool
    * https://github.com/etobi/Typo3ExtensionUtils
    * git (recommended for installation)
 
@@ -50,6 +51,13 @@ Usage
   ext version 'xx.xx.xx'                   => set the extension version xx.xx.xx
 ```
 
+TODO
+====
+
+  * Add more TER features.
+	* Test it on windows.
+	* Document how to contribute modules.
+
 Wanted
 ======
 
@@ -59,5 +67,9 @@ Wanted
   * Modules, that extend the functionality 
 
  
+Have fun!
+
+Yours, Elmar
+
 
 
