@@ -32,6 +32,7 @@ abstract class Action implements ActionService {
 	}
 
 	public function go() {
+		// print_r($this->getArguments());
 		if($this instanceOf ExtensionContextSensitivity && !$this->isContextValid()) {
 				$this->exitError('You are not in an extension.');
 		}
