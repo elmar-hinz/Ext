@@ -85,15 +85,21 @@ $EM_CONF[$_EXTKEY] = ' . var_export($data, TRUE) . ';
 		fclose($fileHandler);
 	}
 
+	public function uploadExtensionToTer($username,$password,$extensionKey,$extensionPath,$uploadComment) {
+				require_once(__DIR__.'/../../Typo3ExtensionUtils/lib/etobi/extensionUtils/Controller/TerController.php');
+				require_once(__DIR__.'/../../Typo3ExtensionUtils/lib/etobi/extensionUtils/ter/TerUpload.php');
+				require_once(__DIR__.'/../../Typo3ExtensionUtils/lib/etobi/extensionUtils/ter/Soap.php');
+				require_once(__DIR__.'/../../Typo3ExtensionUtils/lib/etobi/extensionUtils/ter/Helper.php');
+				$terController = new \etobi\extensionUtils\Controller\TerController();
+				return $terController->uploadAction($username,$password,$extensionKey,$uploadComment,$extensionPath); 
+	}
+
 	public function getExtensionInfoFromTer($key, $value = NULL) {
 				require_once(__DIR__.'/../../Typo3ExtensionUtils/lib/etobi/extensionUtils/Controller/TerController.php');
 				$terController = new \etobi\extensionUtils\Controller\TerController();
 				$terController->infoAction($key, $value);
 				return TRUE;
 	}
-
-
-
 
 } 
 

@@ -76,6 +76,14 @@ abstract class Action implements ActionService {
 	// Also simplyfies unit testing.                 //
 	///////////////////////////////////////////////////
 
+	public function getExtensionPath() { 
+		return $this->context->getExtensionPath();
+	}
+
+	public function getExtensionKey() { 
+		return $this->context->getExtensionKey();
+	}
+
 	private function getContext() { 
 		return $this->context = $this->container->getInstance('Ext\ExtensionContext');
 	}

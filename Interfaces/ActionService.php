@@ -15,6 +15,8 @@ interface ActionService extends \Cool\Service {
 	public function handleSubArgument();
 
 	// Law of demeter: context interface
+	public function getExtensionPath();
+	public function getExtensionKey();
 	public function isContextValid();
 	public function getContextProperty($key);
 	public function setContextProperty($key, $values);
