@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="ext : a commandline TYPO3 extension repository client" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>ext</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/t3elmar/Ext">View on GitHub</a>
+
+          <h1 id="project_title">ext</h1>
+          <h2 id="project_tagline">a commandline TYPO3 extension repository client</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/t3elmar/Ext/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/t3elmar/Ext/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1></h1>
+
+<h1>ext - commandline TER client </h1>
+
+<ul>
+<li>Author: Elmar Hinz <a href="mailto:t3elmar@googlemail.com">t3elmar@googlemail.com</a>
+</li>
+<li>Version: 1.0.0</li>
+<li>Stability: Alpha/Usable</li>
+<li>Last update: 2013-03-18</li>
+<li>OS: Unix, Mac</li>
+<li>Dependencies: 
+
+<ul>
+<li>php &gt; 5.3 with SOAP</li>
+<li><a href="https://github.com/t3elmar/Cool.git">https://github.com/t3elmar/Cool.git</a></li>
+<li><a href="https://github.com/etobi/Typo3ExtensionUtils">https://github.com/etobi/Typo3ExtensionUtils</a></li>
+<li>git (recommended for installation)</li>
+</ul>
+</li>
+</ul><h1>Installation</h1>
+
+<div class="highlight"><pre>  git clone https://github.com/t3elmar/Cool.git
+  <span class="nb">cd </span>Cool/Modules
+  git clone https://github.com/etobi/Typo3ExtensionUtils.git
+  git clone https://github.com/t3elmar/Ext.git
+  <span class="nb">cd </span>Ext/bin
+  chmod +x ext
+  ./ext install 
+</pre></div>
+
+<h1>Usage</h1>
+
+<div class="highlight"><pre>  ext <span class="nv">description</span>                          <span class="o">=</span>&gt; get the description
+  ext description <span class="s1">'my text here'</span>           <span class="o">=</span>&gt; <span class="nb">set </span>the description
+  ext <span class="nb">help</span>                                 <span class="o">=</span>&gt; this <span class="nb">help</span>
+<span class="nb">  </span>ext <span class="nv">install</span>                              <span class="o">=</span>&gt; support to install
+  ext <span class="nv">list</span>                                 <span class="o">=</span>&gt; list settings <span class="o">(</span><span class="nb">alias </span>show, info<span class="o">)</span>
+  ext property <span class="s1">'mykey'</span>                     <span class="o">=</span>&gt; get a property <span class="o">(</span><span class="nb">alias </span>get<span class="o">)</span>
+  ext property <span class="s1">'mykey'</span> <span class="s1">'myvalue'</span>           <span class="o">=</span>&gt; <span class="nb">set </span>a property <span class="o">(</span><span class="nb">alias set</span><span class="o">)</span>
+  ext <span class="nv">status</span>                               <span class="o">=</span>&gt; get the status
+  ext status <span class="s1">'alpha'</span>                       <span class="o">=</span>&gt; <span class="nb">set </span>the status to alpha
+  ext <span class="nv">ter</span>                                  <span class="o">=</span>&gt; nothing happens
+  ext ter info <span class="s1">'ext_key'</span>                   <span class="o">=</span>&gt; get extension info
+  ext ter info <span class="s1">'ext_key'</span> <span class="s1">'xx.xx.xx'</span>        <span class="o">=</span>&gt; get extension info <span class="k">for </span>version xx.xx.xx
+  ext upload <span class="s1">'password'</span>                    <span class="o">=</span>&gt; upload extension
+  ext upload <span class="s1">'password'</span> <span class="s1">'upload comment'</span>   <span class="o">=</span>&gt; upload extension with new comment
+  ext <span class="nv">user</span>                                 <span class="o">=</span>&gt; get the TER username
+  ext user <span class="s1">'myname'</span>                        <span class="o">=</span>&gt; <span class="nb">set </span>the TER username
+  ext <span class="nv">version</span>                              <span class="o">=</span>&gt; get the version
+  ext version <span class="s1">'xx.xx.xx'</span>                   <span class="o">=</span>&gt; <span class="nb">set </span>the extension version xx.xx.xx
+</pre></div>
+
+<h1>Wanted</h1>
+
+<ul>
+<li>Testers</li>
+<li>Issus</li>
+<li>Pull requests</li>
+<li>Modules, that extend the functionality </li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">ext maintained by <a href="https://github.com/t3elmar">t3elmar</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
