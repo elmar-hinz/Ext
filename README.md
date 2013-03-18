@@ -48,6 +48,7 @@ mv t3elmar-* Cool
 rm cool.tgz
 
 cd Cool/Modules/
+
 wget https://github.com/etobi/Typo3ExtensionUtils/tarball/master -O t3eu.tgz
 tar xzf t3eu.tgz 
 mv etobi-* Typo3ExtensionUtils
@@ -59,6 +60,7 @@ mv t3elmar-* Ext
 rm ext.tgz
 
 cd Ext/bin
+
 chmod +x ext
 ./ext install
 ```
