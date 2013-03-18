@@ -17,6 +17,9 @@ ext - commandline ter client
 Installation
 ============
 
+With git
+--------
+
 ```sh
   git clone https://github.com/t3elmar/Cool.git
   cd Cool/Modules
@@ -25,6 +28,29 @@ Installation
   cd Ext/bin
   chmod +x ext
   ./ext install 
+```
+
+With wget
+---------
+
+```sh
+wget https://github.com/t3elmar/Cool/tarball/master -O Cool.tgz
+tar xzf cool.tgz
+mv t3elmar-* Cool/
+rm cool.tgz
+cd Cool/Moldules/
+wget https://github.com/ etobi/Typo3ExtensionUtils/tarball/master -O t3eu.tgz
+tar xzf t3eu.tgz 
+mv etobi-* Typo3ExtensionUtils/
+rm t3eu.tgz
+wget https://github.com/t3elmar/Ext/tarball/master -O ext.tgz
+tar xzf ext.tgz
+mv t3elmar-* Ext/
+rm ext.tgz
+cd Ext/bin
+chmod +x
+./ext install
+
 ```
 
 Usage
