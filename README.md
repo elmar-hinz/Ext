@@ -24,10 +24,14 @@ I suggest to use copy and paste, all at once.
 
 ```sh
   git clone https://github.com/t3elmar/Cool.git
+
   cd Cool/Modules
+
   git clone https://github.com/etobi/Typo3ExtensionUtils.git
   git clone https://github.com/t3elmar/Ext.git
+
   cd Ext/bin
+
   chmod +x ext
   ./ext install 
 ```
