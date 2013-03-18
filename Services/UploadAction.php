@@ -1,6 +1,6 @@
 <?php namespace Ext;
 
-class UplaodAction extends Action implements ExtensionContextSensitivity {
+class UploadAction extends Action implements ExtensionContextSensitivity {
 
 	static protected $parentActionToServeFor = 'Ext\MainAction';
 	static protected $argumentsToServeFor = 'upload';
@@ -27,8 +27,8 @@ class UplaodAction extends Action implements ExtensionContextSensitivity {
 
 	public function usage() {
 		return "
-			ext upload password : upload extension 
-			ext upload password 'upload comment': upload extension with new comment
+			ext upload 'password' : upload extension 
+			ext upload 'password' 'upload comment': upload extension with new comment
 		";
 	}
 
