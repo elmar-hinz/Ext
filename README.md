@@ -137,13 +137,13 @@ ext the setting of the version and the upload are two different steps.
 
 You can render your docs with a private script in between with the selected version.
 
-A command to install the version from ext_emconf.php into manual.sxw isn't available 
+A command to install the version from `ext_emconf.php` into manual.sxw isn't available 
 yet. It would be an idea for a module.
 
 How to use it?
 ==============
 
-In the first steps you store all requied values into the array of ext_emconf.php
+In the first steps you store all requied values into the array of `ext_emconf.php`
 by using the appropriate ext commands. You at least set your username for ter 
 and the new version to use. 
 
@@ -152,7 +152,7 @@ Don't store you password into ext_empconf.php., stupid!
 In the final step you call the upload command with your password. 
 
 Ext magically detects, when you are inside an extension, even if you work in 
-a subdirectory of it. It knows the path to ext_emconf.php automatically. 
+a subdirectory of it. It knows the path to `ext_emconf.php` automatically. 
 
 For scripting it means, that you must first `cd` into the extension.
 
@@ -168,7 +168,7 @@ ext show
 ext upload 'topsecret' 'just a bugfix release'
 ```
 
-Now the user is set to ext_emfconf.php. The next time you can do:
+Now the user is set to `ext_emconf.php`. The next time you can do:
 
 ```sh
 ext show
