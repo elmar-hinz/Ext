@@ -147,37 +147,63 @@ chmod +x ext
 
 <p>You can make the extension upload to TER a part of your testing and deployment scripts.</p>
 
-<h2>Independency</h2>
+<h2>Independence</h2>
 
 <p>You are independent form any installed TYPO3 instance.</p>
 
 <p>In a typical vagrant development environments you run TYPO3 in virtual machines, 
 while you edit the code directly on the host, that is mounted into the machines.
 In example only the folder typ3conf is accessible from the host's side.
-In that case you still can use ext to upload your extensions without having a 
+In that case you still can use <code>ext</code> to upload your extensions without having a 
 TYPO3 installed on the host itself.</p>
 
 <h2>Synchronize your docs</h2>
 
 <p>You can set the same version into your docs, which appears in TER. The classical
 uploader sets the version during upload and your docs version is behind. With
-ext the setting of the version and the upload are two different steps. </p>
+<code>ext</code> the setting of the version and the upload are two different steps. </p>
 
 <p>You can render your docs with a private script in between with the selected version.</p>
 
-<p>A command to install the version from ext_emconf.php into manual.sxw isn't available 
+<p>A command to install the version from <code>ext_emconf.php</code> into manual.sxw isn't available 
 yet. It would be an idea for a module.</p>
 
 <h1>How to use it?</h1>
 
-<p>In the first steps you store all requied values into the array of ext_emconf.php.
-You also set your username for ter and the new version to use. 
-In the final step you call the upload command with your password. 
-Don't store you password into ext_empconf.php. ;)</p>
+<p>In the first steps you store all requied values into the array of <code>ext_emconf.php</code>
+by using the appropriate <code>ext</code> commands. You at least set your username for ter 
+and the new version to use. </p>
+
+<p>Don't store you password into <code>ext_empconf.php</code>., stupid! </p>
+
+<p>In the final step you call the upload command with your password. </p>
 
 <p>Ext magically detects, when you are inside an extension, even if you work in 
-a subdirectory of it. It knows the path to ext_emconf.php automatically. 
-For scripting it means, that you must first chdir into the extension.</p>
+a subdirectory of it. It knows the path to <code>ext_emconf.php</code> automatically. </p>
+
+<p>For scripting it means, that you must first <code>cd</code> into the extension.</p>
+
+<h2>Example</h2>
+
+<div class="highlight"><pre><span class="nb">cd </span>typo3conf/ext/myextension
+ext show
+ext user <span class="s1">'littleidiot'</span>
+ext version <span class="s1">'1.12.7'</span>
+ext show
+ext upload <span class="s1">'topsecret'</span> <span class="s1">'just a bugfix release'</span>
+</pre></div>
+
+<p>Now the user is set to <code>ext_emconf.php</code>. The next time you can do:</p>
+
+<div class="highlight"><pre>ext show
+ext version <span class="s1">'1.12.8'</span>
+ext upload <span class="s1">'topsecret'</span>
+</pre></div>
+
+<p>In this case the upload comment stays the same.</p>
+
+<p>Mind to use singlequotes, wherever you have special characters 
+or whitespace in your strings, especially for the password.</p>
 
 <h1>TODO</h1>
 
