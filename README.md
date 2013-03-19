@@ -137,7 +137,7 @@ uploader sets the version during upload and your docs version is behind. With
 
 You can render your docs with a private script in between with the selected version.
 
-A command to install the version from `ext\_emconf.php` into manual.sxw isn't available 
+A command to install the version from `ext_emconf.php` into manual.sxw isn't available 
 yet. It would be an idea for a module.
 
 How does it work?
@@ -147,21 +147,21 @@ The ter upload
 --------------
 
 It is important to understand, that `ext` stores the ter **user** name, 
-the ter **version** and the ter upload **comment** into `ext\_emconf.php` 
+the ter **version** and the ter upload **comment** into `ext_emconf.php` 
 of the given extension.  Once all this is prepared, it is a short call to upload:
 
 ```sh
-  ext upload 'password'                    => upload extension
+  ext upload 'password'
 ```
 
-In this sense ext is also an editor of `ext\_emconf` and you may use it 
+In this sense ext is also an editor of `ext_emconf` and you may use it 
 to edit other properties.
 
 Ext magically detects, when you are inside an extension, even if you work in 
-a subdirectory of it. It knows the path to `ext\_emconf.php` automatically. 
+a subdirectory of it. It knows the path to `ext_emconf.php` automatically. 
 If you are not inside an extension you get an error message. 
 
-This behaviour is called **extension context sensitivity**.  
+This behaviour is called **extension context sensitivity**.
 For scripting it means, that you must first `cd` into the extension.
 
 Other features
@@ -171,8 +171,8 @@ Features, that are not *extension context sensible*, don't require to be in an e
 Examples are the commands to get general informations from TER
 	
 ```sh
-  ext ter info 'ext_key'                   => get extension info
-  ext ter info 'ext_key' 'xx.xx.xx'        => get extension info for version xx.xx.xx
+  ext ter info 'ext_key'
+  ext ter info 'ext_key' 'xx.xx.xx'
 ```
 
 How to use it?
@@ -190,7 +190,7 @@ ext show
 ext upload 'topsecret' 'just a bugfix release'
 ```
 
-Now the user is set to `ext\_emconf.php`. The next time you can do:
+Now the user is set to `ext_emconf.php`. The next time you can do:
 
 ```sh
 ext version '1.12.8'
