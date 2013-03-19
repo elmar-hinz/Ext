@@ -7,7 +7,7 @@ ext - commandline ter client
  * Version: 1.0.0
  * Stability: Alpha/Usable
  * Last update: 2013-03-18
- * OS: Unix, Mac, Linux, BSD
+ * OS: POSIX i.e. Mac OS X, Unix, Linux, BSD
  * Dependencies: 
    * php > 5.3 with SOAP
    * https://github.com/t3elmar/Cool
@@ -122,7 +122,7 @@ Independency from an installed TYPO3 system
 
 In a typical vagrant development environments you run TYPO3 in virtual machines, 
 while you edit the code directly on the host, that is mounted into the machines.
-In example only the folder typ3conf is accessible from the hostside.
+In example only the folder typ3conf is accessible from the host's side.
 In that case you still can use ext to upload your extensions without having a 
 TYPO3 installed on the host itself.
 
@@ -139,11 +139,11 @@ How to use it?
 
 In the first steps you store all requied values into the array of ext_emconf.php.
 You also set your username for ter and the new version to use. 
-In the final steop you call the upload command in give your password. 
+In the final steop you call the upload command with your password. 
 Don't store you password into ext_empconf.php. ;)
 
-Ext magically detects when you are inside an extension, even if you work in 
-a subdirectory of it. It knows the path to ext_emconf.php without setting it. 
+Ext magically detects, when you are inside an extension, even if you work in 
+a subdirectory of it. It knows the path to ext_emconf.php automatically. 
 For scripting it means, that you must first chdir into the extension.
 
 TODO
