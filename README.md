@@ -159,16 +159,16 @@ to edit other properties.
 
 Ext magically detects, when you are inside an extension, even if you work in 
 a subdirectory of it. It knows the path to `ext_emconf.php` automatically. 
-If you are not inside an extension you get an error message. 
+If you are not inside an extension, you get an error message. 
 
-This behaviour is called **extension context sensitivity**.
+This behaviour is called **extension context awareness**.
 For scripting it means, that you must first `cd` into the extension.
 
 Other features
 --------------
 
-Features, that are not *extension context sensible*, don't require to be in an extension.
-Examples are the commands to get general informations from TER
+Features, that are not *extension context aware*, don't require to be inside an extension.
+Examples are the commands to fetch general informations from TER
 	
 ```sh
   ext ter info 'ext_key'
