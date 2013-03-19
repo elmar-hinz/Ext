@@ -11,7 +11,7 @@ ext - commandline ter client
  * Dependencies: 
    * php > 5.3 with SOAP
    * https://github.com/t3elmar/Cool
-   * https://github.com/etobi/Typo3ExtensionUtils
+   * https://github.com/etobi/Typo3ExtensionUtils (from Tobias Liebig)
    * git (recommended for installation)
 
 Installation
@@ -27,12 +27,16 @@ I suggest to use copy and paste, all at once.
 git clone https://github.com/t3elmar/Cool.git
 
 # 2.) install 2 modules
+
 cd Cool/Modules
+
 git clone https://github.com/etobi/Typo3ExtensionUtils.git
 git clone https://github.com/t3elmar/Ext.git
 
-# 3.) make ext executable and install an alias
+# 3.) make ext executable and install an alias named ext
+
 cd Ext/bin
+
 chmod +x ext
 ./ext install 
 ```
@@ -44,13 +48,16 @@ I suggest to use copy and paste, all at once.
 
 ```sh
 # 1.) install Cool
+
 wget https://github.com/t3elmar/Cool/tarball/master -O cool.tgz
 tar xzf cool.tgz
 mv t3elmar-* Cool
 rm cool.tgz
 
 # 2.) install 2 modules
+
 cd Cool/Modules/
+
 wget https://github.com/etobi/Typo3ExtensionUtils/tarball/master -O t3eu.tgz
 tar xzf t3eu.tgz 
 mv etobi-* Typo3ExtensionUtils
@@ -61,7 +68,8 @@ tar xzf ext.tgz
 mv t3elmar-* Ext
 rm ext.tgz
 
-# 3.) make ext executable and install an alias
+# 3.) make ext executable and install an alias named ext
+
 cd Ext/bin
 
 chmod +x ext
