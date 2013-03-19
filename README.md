@@ -188,6 +188,13 @@ TODO
   * Add more TER features.
   * Test it on windows.
   * Document how to contribute modules.
+	
+Success stories
+===============
+
+Did you manage to get `ext` running?
+
+Contribute your success story: https://github.com/t3elmar/Ext/wiki/Success-Stories
 
 Wanted
 ======
