@@ -139,7 +139,7 @@ How to use it?
 
 In the first steps you store all requied values into the array of ext_emconf.php.
 You also set your username for ter and the new version to use. 
-In the final steop you call the upload command with your password. 
+In the final step you call the upload command with your password. 
 Don't store you password into ext_empconf.php. ;)
 
 Ext magically detects, when you are inside an extension, even if you work in 
