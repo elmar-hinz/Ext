@@ -179,7 +179,7 @@ ext upload 'topsecret'
 In this case the upload comment stays the same.
 
 Mind to use singlequotes, wherever you have special characters 
-or whitespace in your strings.
+or whitespace in your strings, especially for the password.
 
 TODO
 ====
