@@ -105,7 +105,7 @@ Scriptablity
 
 You can make the extension upload to TER a part of your testing and deployment scripts.
 
-Incependency from an installed TYPO3 system
+Independency from an installed TYPO3 system
 -------------------------------------------
 
 In a typical vagrant development environments you run TYPO3 in virtual machines, 
