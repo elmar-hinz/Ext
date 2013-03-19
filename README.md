@@ -154,7 +154,7 @@ In the final step you call the upload command with your password.
 Ext magically detects, when you are inside an extension, even if you work in 
 a subdirectory of it. It knows the path to ext_emconf.php automatically. 
 
-For scripting it means, that you must first `chdir` into the extension.
+For scripting it means, that you must first `cd` into the extension.
 
 Example
 -------
