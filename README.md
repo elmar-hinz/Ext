@@ -152,6 +152,28 @@ Ext magically detects, when you are inside an extension, even if you work in
 a subdirectory of it. It knows the path to ext_emconf.php automatically. 
 For scripting it means, that you must first chdir into the extension.
 
+Example
+-------
+
+```sh
+ext show
+ext user 'littleidiot'
+ext version '1.12.7'
+ext show
+ext upload 'topsecret' 'just a bugfix release'
+```
+
+Now the user is set to ext_emfconf.php. The next time you can do:
+
+```sh
+ext show
+ext version '1.12.8'
+ext upload 'topsecret'
+```
+
+In this case the upload comment stays the same.
+
+
 TODO
 ====
 
