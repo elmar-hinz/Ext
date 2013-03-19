@@ -168,22 +168,39 @@ uploader sets the version during upload and your docs version is behind. With
 <p>A command to install the version from <code>ext_emconf.php</code> into manual.sxw isn't available 
 yet. It would be an idea for a module.</p>
 
-<h1>How to use it?</h1>
+<h1>How does it work?</h1>
 
-<p>In the first steps you store all requied values into the array of <code>ext_emconf.php</code>
-by using the appropriate <code>ext</code> commands. You at least set your username for ter 
-and the new version to upload. </p>
+<h2>The ter upload</h2>
 
-<p>Don't store your password into <code>ext_empconf.php</code>, stupid! </p>
+<p>It is important to understand, that <code>ext</code> stores the ter <strong>user</strong> name, 
+the ter <strong>version</strong> and the ter upload <strong>comment</strong> into <code>ext_emconf.php</code> 
+of the given extension.  Once all this is prepared, it is a short call to upload:</p>
 
-<p>In the final step you call the upload command with your password. </p>
+<div class="highlight"><pre>  ext upload <span class="s1">'password'</span>
+</pre></div>
+
+<p>In this sense ext is also an editor of <code>ext_emconf</code> and you may use it 
+to edit other properties.</p>
 
 <p>Ext magically detects, when you are inside an extension, even if you work in 
-a subdirectory of it. It knows the path to <code>ext_emconf.php</code> automatically. </p>
+a subdirectory of it. It knows the path to <code>ext_emconf.php</code> automatically. 
+If you are not inside an extension, you get an error message. </p>
 
-<p>For scripting it means, that you must first <code>cd</code> into the extension.</p>
+<p>This behaviour is called <strong>extension context awareness</strong>.
+For scripting it means, that you must first <code>cd</code> into the extension.</p>
 
-<h2>Example</h2>
+<h2>Other features</h2>
+
+<p>Features, that are not <em>extension context aware</em>, don't require to be inside an extension.
+Examples are the commands to fetch general informations from TER</p>
+
+<div class="highlight"><pre>  ext ter info <span class="s1">'ext_key'</span>
+  ext ter info <span class="s1">'ext_key'</span> <span class="s1">'xx.xx.xx'</span>
+</pre></div>
+
+<h1>How to use it?</h1>
+
+<h2>Example of an upload session</h2>
 
 <div class="highlight"><pre><span class="nb">cd </span>typo3conf/ext/myextension
 ext show
@@ -195,8 +212,7 @@ ext upload <span class="s1">'topsecret'</span> <span class="s1">'just a bugfix r
 
 <p>Now the user is set to <code>ext_emconf.php</code>. The next time you can do:</p>
 
-<div class="highlight"><pre>ext show
-ext version <span class="s1">'1.12.8'</span>
+<div class="highlight"><pre>ext version <span class="s1">'1.12.8'</span>
 ext upload <span class="s1">'topsecret'</span>
 </pre></div>
 
