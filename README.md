@@ -117,8 +117,10 @@ Scriptablity
 
 You can make the extension upload to TER a part of your testing and deployment scripts.
 
-Independency from an installed TYPO3 system
--------------------------------------------
+Independency
+------------
+
+You are independent form any installed TYPO3 instance.
 
 In a typical vagrant development environments you run TYPO3 in virtual machines, 
 while you edit the code directly on the host, that is mounted into the machines.
@@ -126,13 +128,17 @@ In example only the folder typ3conf is accessible from the host's side.
 In that case you still can use ext to upload your extensions without having a 
 TYPO3 installed on the host itself.
 
-Synchronize the version in your docs
-------------------------------------
+Synchronize your docs
+---------------------
 
-You can use ext to first set the version into ext_emconf.php, then use a private 
-script to render the new version into your documentations and then use ext to 
-upload it all. A command to install the version into manual.sxw isn't available yet
-with ext.
+You can set the same version into your docs, which appears in TER. The classical
+uploader sets the version during upload and your docs version is behind. With
+ext the setting of the version and the upload are two different steps. 
+
+You can render your docs with a private script in between with the selected version.
+
+A command to install the version from ext_emconf.php into manual.sxw isn't available 
+yet. It would be an idea for a module.
 
 How to use it?
 ==============
