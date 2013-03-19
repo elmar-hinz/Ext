@@ -3,6 +3,7 @@ ext - commandline ter client
 ============================
 
  * Author: Elmar Hinz <t3elmar@googlemail.com>
+ * License: MIT
  * Homepage: http://t3elmar.github.com/Ext/
  * Version: 1.1.0
  * Stability: Alpha/Usable
@@ -148,7 +149,8 @@ The ter upload
 
 It is important to understand, that `ext` stores the ter **user** name, 
 the ter **version** and the ter upload **comment** into `ext_emconf.php` 
-of the given extension.  Once all this is prepared, it is a short call to upload:
+of the given extension.  Once all is prepared to your liking,
+it is a short call to upload:
 
 ```sh
   ext upload 'password'
