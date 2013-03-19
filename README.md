@@ -23,7 +23,7 @@ With git
 I suggest to use copy and paste, all at once.
 
 ```sh
-# 1.) installi Cool
+# 1.) install Cool
 git clone https://github.com/t3elmar/Cool.git
 
 # 2.) install 2 modules
@@ -43,13 +43,13 @@ With wget and tar
 I suggest to use copy and paste, all at once.
 
 ```sh
-# 1.) installi Cool
+# 1.) install Cool
 wget https://github.com/t3elmar/Cool/tarball/master -O cool.tgz
 tar xzf cool.tgz
 mv t3elmar-* Cool
 rm cool.tgz
 
-# 2.) instal 2 modules
+# 2.) install 2 modules
 cd Cool/Modules/
 wget https://github.com/etobi/Typo3ExtensionUtils/tarball/master -O t3eu.tgz
 tar xzf t3eu.tgz 
