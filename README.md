@@ -154,7 +154,7 @@ of the given extension.  Once all this is prepared, it is a short call to upload
   ext upload 'password'
 ```
 
-In this sense ext is also an editor of `ext_emconf` and you may use it 
+In this sense ext is also an editor of `ext_emconf.php` and you may use it 
 to edit other properties.
 
 Ext magically detects, when you are inside an extension, even if you work in 
@@ -226,7 +226,7 @@ Wanted
   * Modules, that extend the functionality 
 
  
-Have fun!
+Thank you for supporting `ext`. Have fun with it!
 
 Yours, Elmar
 
