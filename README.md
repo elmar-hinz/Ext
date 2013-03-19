@@ -24,6 +24,7 @@ I suggest to use copy and paste, all at once.
 
 ```sh
 # 1.) install Cool
+
 git clone https://github.com/t3elmar/Cool.git
 
 # 2.) install 2 modules
@@ -40,6 +41,9 @@ cd Ext/bin
 chmod +x ext
 ./ext install 
 ```
+
+The advantage with git is, that you can simply update with pull requests
+and change back to an older version, if anything breaks.
 
 With wget and tar
 -----------------
@@ -100,8 +104,8 @@ Usage
   ext version 'xx.xx.xx'                   => set the extension version xx.xx.xx
 ```
 
-Why to use it
-==============
+Why to use it?
+===============
 
 Speed
 -----
@@ -130,8 +134,8 @@ script to render the new version into your documentations and then use ext to
 upload it all. A command to install the version into manual.sxw isn't available yet
 with ext.
 
-How to use it
-=============
+How to use it?
+==============
 
 In the first steps you store all requied values into the array of ext_emconf.php.
 You also set your username for ter and the new version to use. 
