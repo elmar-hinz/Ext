@@ -145,9 +145,9 @@ How to use it?
 
 In the first steps you store all requied values into the array of `ext_emconf.php`
 by using the appropriate `ext` commands. You at least set your username for ter 
-and the new version to use. 
+and the new version to upload. 
 
-Don't store you password into `ext_empconf.php`., stupid! 
+Don't store your password into `ext_empconf.php`, stupid! 
 
 In the final step you call the upload command with your password. 
 
