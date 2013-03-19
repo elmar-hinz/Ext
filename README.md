@@ -171,7 +171,6 @@ ext upload 'topsecret' 'just a bugfix release'
 Now the user is set to `ext_emconf.php`. The next time you can do:
 
 ```sh
-ext show
 ext version '1.12.8'
 ext upload 'topsecret'
 ```
