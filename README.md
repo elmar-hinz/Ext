@@ -23,17 +23,18 @@ With git
 I suggest to use copy and paste, all at once.
 
 ```sh
-  git clone https://github.com/t3elmar/Cool.git
+# 1.) installi Cool
+git clone https://github.com/t3elmar/Cool.git
 
-  cd Cool/Modules
+# 2.) install 2 modules
+cd Cool/Modules
+git clone https://github.com/etobi/Typo3ExtensionUtils.git
+git clone https://github.com/t3elmar/Ext.git
 
-  git clone https://github.com/etobi/Typo3ExtensionUtils.git
-  git clone https://github.com/t3elmar/Ext.git
-
-  cd Ext/bin
-
-  chmod +x ext
-  ./ext install 
+# 3.) make ext executable and install an alias
+cd Ext/bin
+chmod +x ext
+./ext install 
 ```
 
 With wget and tar
@@ -42,13 +43,14 @@ With wget and tar
 I suggest to use copy and paste, all at once.
 
 ```sh
+# 1.) installi Cool
 wget https://github.com/t3elmar/Cool/tarball/master -O cool.tgz
 tar xzf cool.tgz
 mv t3elmar-* Cool
 rm cool.tgz
 
+# 2.) instal 2 modules
 cd Cool/Modules/
-
 wget https://github.com/etobi/Typo3ExtensionUtils/tarball/master -O t3eu.tgz
 tar xzf t3eu.tgz 
 mv etobi-* Typo3ExtensionUtils
@@ -59,6 +61,7 @@ tar xzf ext.tgz
 mv t3elmar-* Ext
 rm ext.tgz
 
+# 3.) make ext executable and install an alias
 cd Ext/bin
 
 chmod +x ext
@@ -89,9 +92,48 @@ Usage
   ext version 'xx.xx.xx'                   => set the extension version xx.xx.xx
 ```
 
+Why to use it
+==============
+
+Speed
+-----
+
+Once you are used to it, it is much faster, to upload extensions from commandline.
+
+Scriptablity
+------------
+
+You can make the extension upload to TER a part of your testing and deployment scripts.
+
+Incependency from an installed TYPO3 system
+-------------------------------------------
+
+In a typical vagrant development environments you run TYPO3 in virtual machines, 
+while you edit the code directly on the host, that is mounted into the machines.
+In example only the folder typ3conf is accessible from the hostside.
+In that case you still can use ext to upload your extensions without having a 
+TYPO3 installed on the host itself.
+
+Synchronize the version in your docs
+------------------------------------
+
+You can use ext to first set the version into ext_emconf.php, then use a private 
+script to render the new version into your documentations and then use ext to 
+upload it all. A command to install the version into manual.sxw isn't available yet
+with ext.
+
+How to use it
+=============
+
+In the first steps you store all requied values into the array of ext_emconf.php.
+You also set your username for ter and the new version to use. 
+In the final steop you call the upload command in give your password. 
+Don't store you password into ext_empconf.php. ;)
+
 TODO
 ====
 
+  * Interactive password input.
   * Add more TER features.
   * Test it on windows.
   * Document how to contribute modules.
