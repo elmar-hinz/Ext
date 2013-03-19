@@ -117,7 +117,7 @@ Scriptablity
 
 You can make the extension upload to TER a part of your testing and deployment scripts.
 
-Independency
+Independence
 ------------
 
 You are independent form any installed TYPO3 instance.
