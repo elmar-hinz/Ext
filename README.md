@@ -80,8 +80,8 @@ chmod +x ext
 ./ext install
 ```
 
-Usage
-=====
+Usage overview
+==============
 
 ```sh
   ext description                          => get the description
