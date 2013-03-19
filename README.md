@@ -125,7 +125,7 @@ You are independent form any installed TYPO3 instance.
 In a typical vagrant development environments you run TYPO3 in virtual machines, 
 while you edit the code directly on the host, that is mounted into the machines.
 In example only the folder typ3conf is accessible from the host's side.
-In that case you still can use ext to upload your extensions without having a 
+In that case you still can use `ext` to upload your extensions without having a 
 TYPO3 installed on the host itself.
 
 Synchronize your docs
@@ -133,7 +133,7 @@ Synchronize your docs
 
 You can set the same version into your docs, which appears in TER. The classical
 uploader sets the version during upload and your docs version is behind. With
-ext the setting of the version and the upload are two different steps. 
+`ext` the setting of the version and the upload are two different steps. 
 
 You can render your docs with a private script in between with the selected version.
 
@@ -144,10 +144,10 @@ How to use it?
 ==============
 
 In the first steps you store all requied values into the array of `ext_emconf.php`
-by using the appropriate ext commands. You at least set your username for ter 
+by using the appropriate `ext` commands. You at least set your username for ter 
 and the new version to use. 
 
-Don't store you password into ext_empconf.php., stupid! 
+Don't store you password into `ext_empconf.php`., stupid! 
 
 In the final step you call the upload command with your password. 
 
