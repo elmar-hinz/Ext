@@ -49,7 +49,8 @@
 <ul>
 <li>php &gt; 5.3 with SOAP</li>
 <li><a href="https://github.com/t3elmar/Cool">https://github.com/t3elmar/Cool</a></li>
-<li><a href="https://github.com/etobi/Typo3ExtensionUtils">https://github.com/etobi/Typo3ExtensionUtils</a></li>
+<li>
+<a href="https://github.com/etobi/Typo3ExtensionUtils">https://github.com/etobi/Typo3ExtensionUtils</a> (from Tobias Liebig)</li>
 <li>git (recommended for installation)</li>
 </ul>
 </li>
@@ -59,27 +60,36 @@
 
 <p>I suggest to use copy and paste, all at once.</p>
 
-<div class="highlight"><pre>  git clone https://github.com/t3elmar/Cool.git
+<div class="highlight"><pre><span class="c"># 1.) install Cool</span>
+git clone https://github.com/t3elmar/Cool.git
 
-  <span class="nb">cd </span>Cool/Modules
+<span class="c"># 2.) install 2 modules</span>
 
-  git clone https://github.com/etobi/Typo3ExtensionUtils.git
-  git clone https://github.com/t3elmar/Ext.git
+<span class="nb">cd </span>Cool/Modules
 
-  <span class="nb">cd </span>Ext/bin
+git clone https://github.com/etobi/Typo3ExtensionUtils.git
+git clone https://github.com/t3elmar/Ext.git
 
-  chmod +x ext
-  ./ext install 
+<span class="c"># 3.) make ext executable and install an alias named ext</span>
+
+<span class="nb">cd </span>Ext/bin
+
+chmod +x ext
+./ext install 
 </pre></div>
 
 <h2>With wget and tar</h2>
 
 <p>I suggest to use copy and paste, all at once.</p>
 
-<div class="highlight"><pre>wget https://github.com/t3elmar/Cool/tarball/master -O cool.tgz
+<div class="highlight"><pre><span class="c"># 1.) install Cool</span>
+
+wget https://github.com/t3elmar/Cool/tarball/master -O cool.tgz
 tar xzf cool.tgz
 mv t3elmar-* Cool
 rm cool.tgz
+
+<span class="c"># 2.) install 2 modules</span>
 
 <span class="nb">cd </span>Cool/Modules/
 
@@ -92,6 +102,8 @@ wget https://github.com/t3elmar/Ext/tarball/master -O ext.tgz
 tar xzf ext.tgz
 mv t3elmar-* Ext
 rm ext.tgz
+
+<span class="c"># 3.) make ext executable and install an alias named ext</span>
 
 <span class="nb">cd </span>Ext/bin
 
@@ -121,9 +133,46 @@ chmod +x ext
   ext version <span class="s1">'xx.xx.xx'</span>                   <span class="o">=</span>&gt; <span class="nb">set </span>the extension version xx.xx.xx
 </pre></div>
 
+<h1>Why to use it</h1>
+
+<h2>Speed</h2>
+
+<p>Once you are used to it, it is much faster, to upload extensions from commandline.</p>
+
+<h2>Scriptablity</h2>
+
+<p>You can make the extension upload to TER a part of your testing and deployment scripts.</p>
+
+<h2>Independency from an installed TYPO3 system</h2>
+
+<p>In a typical vagrant development environments you run TYPO3 in virtual machines, 
+while you edit the code directly on the host, that is mounted into the machines.
+In example only the folder typ3conf is accessible from the hostside.
+In that case you still can use ext to upload your extensions without having a 
+TYPO3 installed on the host itself.</p>
+
+<h2>Synchronize the version in your docs</h2>
+
+<p>You can use ext to first set the version into ext_emconf.php, then use a private 
+script to render the new version into your documentations and then use ext to 
+upload it all. A command to install the version into manual.sxw isn't available yet
+with ext.</p>
+
+<h1>How to use it</h1>
+
+<p>In the first steps you store all requied values into the array of ext_emconf.php.
+You also set your username for ter and the new version to use. 
+In the final steop you call the upload command in give your password. 
+Don't store you password into ext_empconf.php. ;)</p>
+
+<p>Ext magically detects when you are inside an extension, even if you work in 
+a subdirectory of it. It knows the path to ext_emconf.php without setting it. 
+For scripting it means, that you must first chdir into the extension.</p>
+
 <h1>TODO</h1>
 
 <ul>
+<li>Interactive password input.</li>
 <li>Add more TER features.</li>
 <li>Test it on windows.</li>
 <li>Document how to contribute modules.</li>
