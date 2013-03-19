@@ -156,6 +156,7 @@ Example
 -------
 
 ```sh
+cd typo3conf/ext/myextension
 ext show
 ext user 'littleidiot'
 ext version '1.12.7'
