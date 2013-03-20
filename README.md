@@ -14,6 +14,16 @@ ext - commandline ter client
    * https://github.com/t3elmar/Cool
    * https://github.com/etobi/Typo3ExtensionUtils (from Tobias Liebig)
    * git (recommended for installation)
+	
+At one glance
+=============
+
+```sh
+cd typo3conf/ext/myextension
+ext user 'littleidiot'
+ext version '1.12.7'
+ext upload 'topsecret' 'my upload comment'
+```
 
 Installation
 ============
