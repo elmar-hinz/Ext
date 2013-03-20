@@ -218,10 +218,11 @@ or whitespace in your strings, especially for the password.
 TODO
 ====
 
+  * Document how to contribute modules.
   * Interactive password input.
   * Add more TER features.
+  * Add extension mangager features.
   * Test it on windows.
-  * Document how to contribute modules.
 	
 Success stories
 ===============
@@ -229,6 +230,15 @@ Success stories
 Did you manage to get `ext` running?
 
 Contribute your success story: https://github.com/t3elmar/Ext/wiki/Success-Stories
+
+Design goals
+============
+
+* MIT license - much freedom
+* Independence from T3 core libraries
+* Small footprint
+* Modular system to enable contribution and customization
+* Human orientated interface free of hypen pararmeters
 
 Wanted
 ======
