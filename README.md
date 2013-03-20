@@ -24,6 +24,7 @@ ext user 'littleidiot'
 ext version '1.12.7'
 ext upload 'topsecret' 'my upload comment'
 ```
+... but there is a lot more ...
 
 Installation
 ============
