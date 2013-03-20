@@ -38,11 +38,13 @@
 <ul>
 <li>Author: Elmar Hinz <a href="mailto:t3elmar@googlemail.com">t3elmar@googlemail.com</a>
 </li>
+<li>License: MIT</li>
 <li>Homepage: <a href="http://t3elmar.github.com/Ext/">http://t3elmar.github.com/Ext/</a>
 </li>
 <li>Version: 1.1.0</li>
 <li>Stability: Alpha/Usable</li>
-<li>Last update: See ChangeLog (<a href="https://github.com/t3elmar/Ext/blob/master/ChangeLog">https://github.com/t3elmar/Ext/blob/master/ChangeLog</a>)</li>
+<li>Last update: See <a href="https://github.com/t3elmar/Ext/blob/master/ChangeLog">ChangeLog</a>
+</li>
 <li>OS: POSIX i.e. Mac OS X, Unix, Linux, BSD</li>
 <li>Dependencies: 
 
@@ -54,7 +56,15 @@
 <li>git (recommended for installation)</li>
 </ul>
 </li>
-</ul><h1>Installation</h1>
+</ul><h1>At one glance</h1>
+
+<div class="highlight"><pre><span class="nb">cd </span>typo3conf/ext/myextension
+ext user <span class="s1">'littleidiot'</span>
+ext version <span class="s1">'1.12.7'</span>
+ext upload <span class="s1">'topsecret'</span> <span class="s1">'my upload comment'</span>
+</pre></div>
+
+<h1>Installation</h1>
 
 <h2>With git</h2>
 
@@ -174,7 +184,8 @@ yet. It would be an idea for a module.</p>
 
 <p>It is important to understand, that <code>ext</code> stores the ter <strong>user</strong> name, 
 the ter <strong>version</strong> and the ter upload <strong>comment</strong> into <code>ext_emconf.php</code> 
-of the given extension.  Once all this is prepared, it is a short call to upload:</p>
+of the given extension.  Once all is prepared to your liking,
+it is a short call to upload:</p>
 
 <div class="highlight"><pre>  ext upload <span class="s1">'password'</span>
 </pre></div>
