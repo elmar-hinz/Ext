@@ -7,7 +7,7 @@ ext - commandline ter client
  * Homepage: http://t3elmar.github.com/Ext/
  * Version: 1.1.0
  * Stability: Alpha/Usable
- * Last update: See ChangeLog (https://github.com/t3elmar/Ext/blob/master/ChangeLog)
+ * Last update: See [ChangeLog](https://github.com/t3elmar/Ext/blob/master/ChangeLog)
  * OS: POSIX i.e. Mac OS X, Unix, Linux, BSD
  * Dependencies: 
    * php > 5.3 with SOAP
