@@ -1,6 +1,6 @@
-============================
-ext - commandline ter client 
-============================
+=============================
+ext - command-line ter client 
+=============================
 
  * Author: Elmar Hinz <t3elmar@googlemail.com>
  * License: MIT
@@ -122,7 +122,7 @@ Why to use it?
 Speed
 -----
 
-Once you are used to it, it is much faster, to upload extensions from commandline.
+Once you are used to it, it is much faster, to upload extensions from command-line.
 
 Scriptablity
 ------------
