@@ -3,10 +3,10 @@ ext - command-line ter client
 =============================
 
  * Author: Elmar Hinz <t3elmar@googlemail.com>
- * License: MIT
  * Homepage: http://t3elmar.github.com/Ext/
  * Version: 1.1.0
  * Stability: Alpha/Usable
+ * License: MIT
  * Last update: See [ChangeLog](https://github.com/t3elmar/Ext/blob/master/ChangeLog)
  * OS: POSIX i.e. Mac OS X, Unix, Linux, BSD
  * Dependencies: 
@@ -14,6 +14,7 @@ ext - command-line ter client
    * https://github.com/t3elmar/Cool
    * https://github.com/etobi/Typo3ExtensionUtils (from Tobias Liebig)
    * git (recommended for installation)
+ * The dependencies have ther own licenses and are not part of this program
 	
 At one glance
 =============
@@ -46,12 +47,11 @@ cd Cool/Modules
 git clone https://github.com/etobi/Typo3ExtensionUtils.git
 git clone https://github.com/t3elmar/Ext.git
 
-# 3.) make ext executable and install an alias named ext
+# 3.) make both executable and install an alias named ext
 
-cd Ext/bin
-
-chmod +x ext
-./ext install 
+chmod +x Typo3ExtensionUtils/bin/t3xutils.phar
+chmod +x Ext/bin/ext
+Ext/bin/ext install 
 ```
 
 The advantage with git is, that you can simply update with pull requests
@@ -86,10 +86,11 @@ rm ext.tgz
 
 # 3.) make ext executable and install an alias named ext
 
-cd Ext/bin
+# 3.) make both executable and install an alias named ext
 
-chmod +x ext
-./ext install
+chmod +x Typo3ExtensionUtils/bin/t3xutils.phar
+chmod +x Ext/bin/ext
+Ext/bin/ext install 
 ```
 
 Usage overview
