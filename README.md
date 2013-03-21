@@ -84,8 +84,6 @@ tar xzf ext.tgz
 mv t3elmar-* Ext
 rm ext.tgz
 
-# 3.) make ext executable and install an alias named ext
-
 # 3.) make both executable and install an alias named ext
 
 chmod +x Typo3ExtensionUtils/bin/t3xutils.phar
