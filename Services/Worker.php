@@ -9,6 +9,10 @@ class Worker implements WorkerService {
 	*/
 	static public function canServe($mixed) { return TRUE; }
 
+	private function getPathToBackend() {
+		return $pathToBackend = __DIR__.'/../../Typo3ExtensionUtils/bin/t3xutils.phar';
+	}
+
 	/**
 	* Find path of the extension I am currently in!
 	* 
@@ -85,18 +89,19 @@ $EM_CONF[$_EXTKEY] = '.$out.';
 	}
 
 	public function uploadExtensionToTer($username,$password,$extensionKey,$extensionPath,$uploadComment) {
-				require_once(__DIR__.'/../../Typo3ExtensionUtils/lib/etobi/extensionUtils/Controller/TerController.php');
-				require_once(__DIR__.'/../../Typo3ExtensionUtils/lib/etobi/extensionUtils/ter/TerUpload.php');
-				require_once(__DIR__.'/../../Typo3ExtensionUtils/lib/etobi/extensionUtils/ter/Soap.php');
-				require_once(__DIR__.'/../../Typo3ExtensionUtils/lib/etobi/extensionUtils/ter/Helper.php');
-				$terController = new \etobi\extensionUtils\Controller\TerController();
-				return $terController->uploadAction($username,$password,$extensionKey,$uploadComment,$extensionPath); 
+				// ./t3xutils.phar upload <typo3.org-username> <typo3.org-password> <extensionKey> "<uploadComment>" <pathToExtension>
+				$args = '';
+				$args .= ' '.escapeshellarg($username);
+				$args .= ' '.escapeshellarg($password);
+				$args .= ' '.escapeshellarg($extensionKey);
+				$args .= ' '.escapeshellarg($uploadComment);
+				$args .= ' '.escapeshellarg($extensionPath);
+				passthru($this->getPathToBackend().' upload'.$args);
+				return TRUE;
 	}
 
 	public function getExtensionInfoFromTer($key, $value = NULL) {
-				require_once(__DIR__.'/../../Typo3ExtensionUtils/lib/etobi/extensionUtils/Controller/TerController.php');
-				$terController = new \etobi\extensionUtils\Controller\TerController();
-				$terController->infoAction($key, $value);
+				passthru($this->getPathToBackend().' info '.escapeshellarg($key).' '.escapeshellarg($value));  
 				return TRUE;
 	}
 

@@ -3,10 +3,8 @@
 class Ext {
 
 	static public function main($argv) {
-		date_default_timezone_set('UTC');
 		$moduleBase = __DIR__.'/../..';
 		require_once($moduleBase.'/Cool/Classes/AutoLoader.php');
-		require_once($moduleBase.'/Typo3ExtensionUtils/lib/autoload.php');
 		$loader = new \Cool\AutoLoader();
 		$loader->addModuleBase($moduleBase);
 		$loader->go();
