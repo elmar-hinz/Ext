@@ -1,4 +1,9 @@
 
+2013-03-21 Elmar Hinz  <t3elmar@googlemail.com>
+
+	* version 1.2.0 
+	* decoupling Typo3Utils as separate program
+
 2013-03-19 Elmar Hinz  <t3elmar@googlemail.com>
 
 	* version 1.1.0 
