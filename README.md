@@ -4,7 +4,7 @@ ext - command-line ter client
 
  * Author: Elmar Hinz <t3elmar@googlemail.com>
  * Homepage: http://t3elmar.github.com/Ext/
- * Version: 1.1.0
+ * Version: 1.2.x
  * Stability: Alpha/Usable
  * License: MIT
  * Last update: See [ChangeLog](https://github.com/t3elmar/Ext/blob/master/ChangeLog)
