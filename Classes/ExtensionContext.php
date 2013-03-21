@@ -54,12 +54,11 @@ public function getExtensionPath() {
 	}
 
 	protected function loadEmconf() {
-		$this->properties = $this->worker->readEmConf($this->getExtensionPath());
+		$this->properties = $this->worker->readExtEmConf($this->getExtensionPath());
 	}
 
 	protected function storeEmconf() {
-		
-		$this->worker->writeEmConf($this->getExtensionPath(), $this->extensionKey, $this->getProperties());
+		$this->worker->updateExtEmConf($this->getExtensionPath(), $this->extensionKey, $this->getProperties());
 	}
 
 }

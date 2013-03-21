@@ -84,8 +84,8 @@ class WorkerTest extends \PHPUnit_Framework_Testcase {
 	*/
 	public function read_and_write_to_emconf_is_roundtrip_able() {
 		$data = array( 'username' => 't3elmar', 'author' => 'Elmar Hinz',);
-		$this->sut->writeEmConf($this->extensionRoot, 'test_extension', $data);
-		$read = $this->sut->readEmConf($this->extensionRoot);
+		$this->sut->updateExtEmconf($this->extensionRoot, 'test_extension', $data);
+		$read = $this->sut->readExtEmConf($this->extensionRoot);
 		$this->assertEquals($data, $read);
 	}
 
