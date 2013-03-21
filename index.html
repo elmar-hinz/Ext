@@ -38,11 +38,11 @@
 <ul>
 <li>Author: Elmar Hinz <a href="mailto:t3elmar@googlemail.com">t3elmar@googlemail.com</a>
 </li>
-<li>License: MIT</li>
 <li>Homepage: <a href="http://t3elmar.github.com/Ext/">http://t3elmar.github.com/Ext/</a>
 </li>
 <li>Version: 1.1.0</li>
 <li>Stability: Alpha/Usable</li>
+<li>License: MIT</li>
 <li>Last update: See <a href="https://github.com/t3elmar/Ext/blob/master/ChangeLog">ChangeLog</a>
 </li>
 <li>OS: POSIX i.e. Mac OS X, Unix, Linux, BSD</li>
@@ -56,6 +56,7 @@
 <li>git (recommended for installation)</li>
 </ul>
 </li>
+<li>The dependencies have their own licenses and are not part of this program</li>
 </ul><h1>At one glance</h1>
 
 <div class="highlight"><pre><span class="nb">cd </span>typo3conf/ext/myextension
@@ -83,12 +84,11 @@ git clone https://github.com/t3elmar/Cool.git
 git clone https://github.com/etobi/Typo3ExtensionUtils.git
 git clone https://github.com/t3elmar/Ext.git
 
-<span class="c"># 3.) make ext executable and install an alias named ext</span>
+<span class="c"># 3.) make both executable and install an alias named ext</span>
 
-<span class="nb">cd </span>Ext/bin
-
-chmod +x ext
-./ext install 
+chmod +x Typo3ExtensionUtils/bin/t3xutils.phar
+chmod +x Ext/bin/ext
+Ext/bin/ext install 
 </pre></div>
 
 <p>The advantage with git is, that you can simply update with pull requests
@@ -121,10 +121,11 @@ rm ext.tgz
 
 <span class="c"># 3.) make ext executable and install an alias named ext</span>
 
-<span class="nb">cd </span>Ext/bin
+<span class="c"># 3.) make both executable and install an alias named ext</span>
 
-chmod +x ext
-./ext install
+chmod +x Typo3ExtensionUtils/bin/t3xutils.phar
+chmod +x Ext/bin/ext
+Ext/bin/ext install 
 </pre></div>
 
 <h1>Usage overview</h1>
