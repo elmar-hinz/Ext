@@ -14,7 +14,7 @@ ext - command-line ter client
    * https://github.com/t3elmar/Cool
    * https://github.com/etobi/Typo3ExtensionUtils (from Tobias Liebig)
    * git (recommended for installation)
- * The dependencies have ther own licenses and are not part of this program
+ * The dependencies have their own licenses and are not part of this program
 	
 At one glance
 =============
