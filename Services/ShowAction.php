@@ -1,9 +1,9 @@
 <?php namespace Ext;
 
-class ListAction extends Action implements ExtensionContextSensitivity {
+class ShowAction extends Action implements ExtensionContextSensitivity {
 
 	static protected $parentActionToServeFor = 'Ext\MainAction';
-	static protected $argumentsToServeFor = 'list, show, info';
+	static protected $argumentsToServeFor = 'show, info';
 
 	public function handleArgument() {
 		if ($this->countArguments() == 0) {
@@ -15,12 +15,12 @@ class ListAction extends Action implements ExtensionContextSensitivity {
 
 	public function usage() {
 		return ("
-			ext list : list settings (alias show, info)
+			ext show: show settings (alias info)
 		");
 	}
 
 	public function help() {
-		return ("ext list => list all properties of ext_emconf.php");
+		return ("ext show => list all properties of ext_emconf.php");
 	}
 
 }

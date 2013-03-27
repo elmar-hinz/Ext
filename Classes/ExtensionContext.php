@@ -23,7 +23,7 @@ class ExtensionContext implements \Cool\Singleton {
 		return (bool) $this->getExtensionPath();
 	}
 
-public function getExtensionPath() { 
+	public function getExtensionPath() { 
 		return $this->extensionPath;
 	}
 

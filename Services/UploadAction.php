@@ -6,10 +6,7 @@ class UploadAction extends Action implements ExtensionContextSensitivity {
 	static protected $argumentsToServeFor = 'upload';
 
 	public function handleArgument() {
-		switch($this->countArguments()) {
-			case 2:
-				$this->setContextProperty('uploadComment', $this->getArgument(1));
-			case 1:	
+		if($this->countArguments() == 1) {
 				$username = $this->getContextProperty('user');
 				if(!$username) $this->exitError('No user set to ext_emconf.php.');
 				$password= $this->getArgument(0);
@@ -21,14 +18,14 @@ class UploadAction extends Action implements ExtensionContextSensitivity {
 				$worker = $this->container->getService('Ext\WorkerService');
 				return $worker->uploadExtensionToTer($username,$password,$extensionKey,
 					$extensionPath,$uploadComment);
-				break;
+		} else {
+			return FALSE;
 		}
 	}
 
 	public function usage() {
 		return "
 			ext upload 'password' : upload extension 
-			ext upload 'password' 'upload comment': upload extension with new comment
 		";
 	}
 

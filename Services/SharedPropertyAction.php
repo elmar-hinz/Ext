@@ -3,7 +3,7 @@
 class SharedPropertyAction extends Action implements ExtensionContextSensitivity {
 
 	static protected $parentActionToServeFor = 'Ext\MainAction';
-	static protected $argumentsToServeFor = 'user, version, status, description';
+	static protected $argumentsToServeFor = 'user, version, status, description, comment';
 
 	public function handleArgument() {
 		$helper = $this->container->getInstance('Ext\PropertyActionHelper');
@@ -23,19 +23,21 @@ class SharedPropertyAction extends Action implements ExtensionContextSensitivity
 
 	public function usage() {
 		return ("
+			ext comment : get the upload comment
+			ext comment 'my text here' : set the upload comment
+			ext description : get the description
+			ext description 'my text here' : set the description 
+			ext status : get the status 
+			ext status alpha : set the status to alpha
 			ext user : get the TER username
 			ext user myname : set the TER username
 			ext version : get the version
 			ext version xx.xx.xx: set the extension version xx.xx.xx
-			ext status : get the status 
-			ext status alpha : set the status to alpha
-			ext description : get the description
-			ext description 'my text here' : set the description 
 	");
 	}
 
 	public function help() {
-		return ("TODO");
+		return ("TODO\n\n");
 	}
 }
 

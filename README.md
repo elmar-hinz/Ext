@@ -16,14 +16,15 @@ ext - command-line ter client
    * git (recommended for installation)
  * The dependencies have their own licenses and are not part of this program
 	
-At one glance
-=============
+In short
+========
 
 ```sh
 cd typo3conf/ext/myextension
-ext user 'littleidiot'
-ext version '1.12.7'
-ext upload 'topsecret' 'my upload comment'
+ext version   '1.2.3'
+ext comment   'my upload comment'
+ext user      'littleidiot'
+ext upload    'mypassword'
 ```
 ... but there is a lot more ...
 
@@ -95,24 +96,25 @@ Usage overview
 ==============
 
 ```sh
-  ext description                          => get the description
-  ext description 'my text here'           => set the description
-  ext help                                 => this help
-  ext install                              => support to install
-  ext list                                 => list settings (alias show, info)
-  ext property 'mykey'                     => get a property (alias get)
-  ext property 'mykey' 'myvalue'           => set a property (alias set)
-  ext status                               => get the status
-  ext status 'alpha'                       => set the status to alpha
-  ext ter                                  => nothing happens
-  ext ter info 'ext_key'                   => get extension info
-  ext ter info 'ext_key' 'xx.xx.xx'        => get extension info for version xx.xx.xx
-  ext upload 'password'                    => upload extension
-  ext upload 'password' 'upload comment'   => upload extension with new comment
-  ext user                                 => get the TER username
-  ext user 'myname'                        => set the TER username
-  ext version                              => get the version
-  ext version 'xx.xx.xx'                   => set the extension version xx.xx.xx
+ext comment                              => get the upload comment
+ext comment 'my text here'               => set the upload comment
+ext description                          => get the description
+ext description 'my text here'           => set the description
+ext help                                 => this help
+ext install                              => support to install
+ext property mykey                       => get a property (alias get)
+ext property mykey myvalue               => set a property (alias set)
+ext show                                 => show settings (alias info)
+ext status                               => get the status
+ext status alpha                         => set the status to alpha
+ext ter                                  => nothing happens
+ext ter info ext_key                     => get extension info
+ext ter info ext_key xx.xx.xx            => get extension info for version xx.xx.xx
+ext upload 'password'                    => upload extension
+ext user                                 => get the TER username
+ext user myname                          => set the TER username
+ext version                              => get the version
+ext version xx.xx.xx                     => set the extension version xx.xx.xx
 ```
 
 Why to use it?
@@ -199,7 +201,8 @@ ext show
 ext user 'littleidiot'
 ext version '1.12.7'
 ext show
-ext upload 'topsecret' 'just a bugfix release'
+ext comment 'just a bugfix release'
+ext upload 'topsecret'
 ```
 
 Now the user is set to `ext_emconf.php`. The next time you can do:
