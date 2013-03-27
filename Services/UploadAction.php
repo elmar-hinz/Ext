@@ -12,7 +12,7 @@ class UploadAction extends Action implements ExtensionContextSensitivity {
 				$password= $this->getArgument(0);
 				$extensionKey = $this->getExtensionKey();
 				$extensionPath = $this->getExtensionPath();
-				$uploadComment = $this->getContextProperty('uploadComment');
+				$uploadComment = $this->getContextProperty('comment');
 				if(!$uploadComment) 
 					$this->exitError('No upload comment given or set to ext_emconf.php.');
 				$worker = $this->container->getService('Ext\WorkerService');
