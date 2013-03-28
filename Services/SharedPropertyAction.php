@@ -3,7 +3,7 @@
 class SharedPropertyAction extends Action implements ExtensionContextSensitivity {
 
 	static protected $parentActionToServeFor = 'Ext\MainAction';
-	static protected $argumentsToServeFor = 'user, version, status, description, comment';
+	static protected $argumentsToServeFor = 'user, version, state, description, comment';
 
 	public function handleArgument() {
 		$helper = $this->container->getInstance('Ext\PropertyActionHelper');
@@ -27,8 +27,8 @@ class SharedPropertyAction extends Action implements ExtensionContextSensitivity
 			ext comment 'my text here' : set the upload comment
 			ext description : get the description
 			ext description 'my text here' : set the description 
-			ext status : get the status 
-			ext status alpha : set the status to alpha
+			ext state : get the state 
+			ext state alpha : set the state to alpha
 			ext user : get the TER username
 			ext user myname : set the TER username
 			ext version : get the version

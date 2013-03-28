@@ -4,7 +4,7 @@ ext - command-line ter client
 
  * Author: Elmar Hinz <t3elmar@googlemail.com>
  * Homepage: http://t3elmar.github.com/Ext/
- * Version: 1.3.x
+ * Version: 1.4.x
  * Stability: Alpha/Usable
  * License: MIT
  * Last update: See [ChangeLog](https://github.com/t3elmar/Ext/blob/master/ChangeLog)
@@ -105,8 +105,8 @@ ext install                              => support to install
 ext property mykey                       => get a property (alias get)
 ext property mykey myvalue               => set a property (alias set)
 ext show                                 => show settings (alias info)
-ext status                               => get the status
-ext status alpha                         => set the status to alpha
+ext state                               => get the state
+ext state alpha                         => set the state to alpha
 ext ter                                  => nothing happens
 ext ter info ext_key                     => get extension info
 ext ter info ext_key xx.xx.xx            => get extension info for version xx.xx.xx
