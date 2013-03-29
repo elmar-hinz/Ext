@@ -40,7 +40,7 @@
 </li>
 <li>Homepage: <a href="http://t3elmar.github.com/Ext/">http://t3elmar.github.com/Ext/</a>
 </li>
-<li>Version: 1.2.x</li>
+<li>Version: 1.4.x</li>
 <li>Stability: Alpha/Usable</li>
 <li>License: MIT</li>
 <li>Last update: See <a href="https://github.com/t3elmar/Ext/blob/master/ChangeLog">ChangeLog</a>
@@ -57,12 +57,13 @@
 </ul>
 </li>
 <li>The dependencies have their own licenses and are not part of this program</li>
-</ul><h1>At one glance</h1>
+</ul><h1>In short</h1>
 
 <div class="highlight"><pre><span class="nb">cd </span>typo3conf/ext/myextension
-ext user <span class="s1">'littleidiot'</span>
-ext version <span class="s1">'1.12.7'</span>
-ext upload <span class="s1">'topsecret'</span> <span class="s1">'my upload comment'</span>
+ext version   <span class="s1">'1.2.3'</span>
+ext comment   <span class="s1">'my upload comment'</span>
+ext user      <span class="s1">'littleidiot'</span>
+ext upload    <span class="s1">'mypassword'</span>
 </pre></div>
 
 <p>... but there is a lot more ...</p>
@@ -128,24 +129,25 @@ Ext/bin/ext install
 
 <h1>Usage overview</h1>
 
-<div class="highlight"><pre>  ext <span class="nv">description</span>                          <span class="o">=</span>&gt; get the description
-  ext description <span class="s1">'my text here'</span>           <span class="o">=</span>&gt; <span class="nb">set </span>the description
-  ext <span class="nb">help</span>                                 <span class="o">=</span>&gt; this <span class="nb">help</span>
-<span class="nb">  </span>ext <span class="nv">install</span>                              <span class="o">=</span>&gt; support to install
-  ext <span class="nv">list</span>                                 <span class="o">=</span>&gt; list settings <span class="o">(</span><span class="nb">alias </span>show, info<span class="o">)</span>
-  ext property <span class="s1">'mykey'</span>                     <span class="o">=</span>&gt; get a property <span class="o">(</span><span class="nb">alias </span>get<span class="o">)</span>
-  ext property <span class="s1">'mykey'</span> <span class="s1">'myvalue'</span>           <span class="o">=</span>&gt; <span class="nb">set </span>a property <span class="o">(</span><span class="nb">alias set</span><span class="o">)</span>
-  ext <span class="nv">status</span>                               <span class="o">=</span>&gt; get the status
-  ext status <span class="s1">'alpha'</span>                       <span class="o">=</span>&gt; <span class="nb">set </span>the status to alpha
-  ext <span class="nv">ter</span>                                  <span class="o">=</span>&gt; nothing happens
-  ext ter info <span class="s1">'ext_key'</span>                   <span class="o">=</span>&gt; get extension info
-  ext ter info <span class="s1">'ext_key'</span> <span class="s1">'xx.xx.xx'</span>        <span class="o">=</span>&gt; get extension info <span class="k">for </span>version xx.xx.xx
-  ext upload <span class="s1">'password'</span>                    <span class="o">=</span>&gt; upload extension
-  ext upload <span class="s1">'password'</span> <span class="s1">'upload comment'</span>   <span class="o">=</span>&gt; upload extension with new comment
-  ext <span class="nv">user</span>                                 <span class="o">=</span>&gt; get the TER username
-  ext user <span class="s1">'myname'</span>                        <span class="o">=</span>&gt; <span class="nb">set </span>the TER username
-  ext <span class="nv">version</span>                              <span class="o">=</span>&gt; get the version
-  ext version <span class="s1">'xx.xx.xx'</span>                   <span class="o">=</span>&gt; <span class="nb">set </span>the extension version xx.xx.xx
+<div class="highlight"><pre>ext <span class="nv">comment</span>                              <span class="o">=</span>&gt; get the upload comment
+ext comment <span class="s1">'my text here'</span>               <span class="o">=</span>&gt; <span class="nb">set </span>the upload comment
+ext <span class="nv">description</span>                          <span class="o">=</span>&gt; get the description
+ext description <span class="s1">'my text here'</span>           <span class="o">=</span>&gt; <span class="nb">set </span>the description
+ext <span class="nb">help</span>                                 <span class="o">=</span>&gt; this <span class="nb">help</span>
+ext <span class="nv">install</span>                              <span class="o">=</span>&gt; support to install
+ext property <span class="nv">mykey</span>                       <span class="o">=</span>&gt; get a property <span class="o">(</span><span class="nb">alias </span>get<span class="o">)</span>
+ext property mykey <span class="nv">myvalue</span>               <span class="o">=</span>&gt; <span class="nb">set </span>a property <span class="o">(</span><span class="nb">alias set</span><span class="o">)</span>
+ext <span class="nv">show</span>                                 <span class="o">=</span>&gt; show settings <span class="o">(</span><span class="nb">alias </span>info<span class="o">)</span>
+ext <span class="nv">state</span>                               <span class="o">=</span>&gt; get the state
+ext state <span class="nv">alpha</span>                         <span class="o">=</span>&gt; <span class="nb">set </span>the state to alpha
+ext <span class="nv">ter</span>                                  <span class="o">=</span>&gt; nothing happens
+ext ter info <span class="nv">ext_key</span>                     <span class="o">=</span>&gt; get extension info
+ext ter info ext_key xx.xx.xx            <span class="o">=</span>&gt; get extension info <span class="k">for </span>version xx.xx.xx
+ext upload <span class="s1">'password'</span>                    <span class="o">=</span>&gt; upload extension
+ext <span class="nv">user</span>                                 <span class="o">=</span>&gt; get the TER username
+ext user <span class="nv">myname</span>                          <span class="o">=</span>&gt; <span class="nb">set </span>the TER username
+ext <span class="nv">version</span>                              <span class="o">=</span>&gt; get the version
+ext version xx.xx.xx                     <span class="o">=</span>&gt; <span class="nb">set </span>the extension version xx.xx.xx
 </pre></div>
 
 <h1>Why to use it?</h1>
@@ -219,7 +221,8 @@ ext show
 ext user <span class="s1">'littleidiot'</span>
 ext version <span class="s1">'1.12.7'</span>
 ext show
-ext upload <span class="s1">'topsecret'</span> <span class="s1">'just a bugfix release'</span>
+ext comment <span class="s1">'just a bugfix release'</span>
+ext upload <span class="s1">'topsecret'</span>
 </pre></div>
 
 <p>Now the user is set to <code>ext_emconf.php</code>. The next time you can do:</p>
