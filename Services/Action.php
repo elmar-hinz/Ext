@@ -9,8 +9,8 @@ abstract class Action implements ActionService {
 	private $arguments = array();
 	private $calledArgument = '';
 
-	public abstract function usage();
-	public abstract function help();
+// 	public abstract function usage();
+// 	public abstract function help();
 
 	public function __construct(\Cool\Container $container) { 
 		$this->container = $container; 
@@ -41,7 +41,7 @@ abstract class Action implements ActionService {
 		}
 	}
 
-	public abstract function handleArgument(); 
+// 	public abstract function handleArgument(); 
 
 	public function handleSubArgument() {
 		$arguments = $this->getArguments();
