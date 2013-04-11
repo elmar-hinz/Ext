@@ -1,3 +1,8 @@
+2013-04-11 Elmar Hinz  <t3elmar@googlemail.com>
+
+	* version: 1.4.1 
+	* bugfix: making it working for at least 5.3.3
+
 2013-03-28 Elmar Hinz  <t3elmar@googlemail.com>
 
 	* version: 1.4.0 

@@ -10,7 +10,7 @@ ext - command-line ter client
  * Last update: See [ChangeLog](https://github.com/t3elmar/Ext/blob/master/ChangeLog)
  * OS: POSIX i.e. Mac OS X, Unix, Linux, BSD
  * Dependencies: 
-   * php > 5.3 with SOAP
+   * php > 5.3.3 with SOAP
    * https://github.com/t3elmar/Cool
    * https://github.com/etobi/Typo3ExtensionUtils (from Tobias Liebig)
    * git (recommended for installation)
